@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by francois on 08/11/16.
- */
 public class Questionnaire {
     List<Film> liste;
 

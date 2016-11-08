@@ -1,8 +1,5 @@
 package fr.nantes.web.quizz;
 
-/**
- * Created by francois on 08/11/16.
- */
 public class Film {
 
     private String nom;
