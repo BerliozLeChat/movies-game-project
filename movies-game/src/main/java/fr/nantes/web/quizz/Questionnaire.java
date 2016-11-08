@@ -1,5 +1,6 @@
 package fr.nantes.web.quizz;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,16 +27,29 @@ public class Questionnaire {
         }
     }
 
-    public void system_out_liste (){
+    public void affichage_liste (HttpServletResponse response){
         for(int i = 0; i<liste.size(); ++i){
-            System.out.println("Num Film : "+i);
-            System.out.println("Nom du film : "+liste.get(i).getNom());
-            System.out.println("Longitude du film : "+liste.get(i).getLongitude());
-            System.out.println("Latitude du film : "+liste.get(i).getLatitude());
-            System.out.println("Realisateur du film :"+liste.get(i).getRealisateur());
-            System.out.println("Année du film : "+liste.get(i).getAnnée());
-            System.out.println("id_wiki du film : "+liste.get(i).getId_wiki());
-            System.out.println("id_wiki_realisateur du film : "+liste.get(i).getId_wiki_realisateur());
+            if(response==null) {
+                System.out.println("Num Film : " + i);
+                System.out.println("Nom du film : " + liste.get(i).getNom());
+                System.out.println("Longitude du film : " + liste.get(i).getLongitude());
+                System.out.println("Latitude du film : " + liste.get(i).getLatitude());
+                System.out.println("Realisateur du film :" + liste.get(i).getRealisateur());
+                System.out.println("Année du film : " + liste.get(i).getAnnée());
+                System.out.println("id_wiki du film : " + liste.get(i).getId_wiki());
+                System.out.println("id_wiki_realisateur du film : " + liste.get(i).getId_wiki_realisateur());
+            }else {
+                try {
+                    response.getWriter().println("Num Film : " + i);
+                    response.getWriter().println("Nom du film : " + liste.get(i).getNom());
+                    response.getWriter().println("Longitude du film : " + liste.get(i).getLongitude());
+                    response.getWriter().println("Latitude du film : " + liste.get(i).getLatitude());
+                    response.getWriter().println("Realisateur du film :" + liste.get(i).getRealisateur());
+                    response.getWriter().println("Année du film : " + liste.get(i).getAnnée());
+                    response.getWriter().println("id_wiki du film : " + liste.get(i).getId_wiki());
+                    response.getWriter().println("id_wiki_realisateur du film : " + liste.get(i).getId_wiki_realisateur());
+                } catch (Exception e) {}
+            }
         }
     }
 }
