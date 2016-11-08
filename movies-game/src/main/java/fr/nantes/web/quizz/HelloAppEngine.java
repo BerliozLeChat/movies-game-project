@@ -16,7 +16,10 @@
 
 package fr.nantes.web.quizz;
 
+import com.hp.hpl.jena.query.*;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,9 +30,11 @@ public class HelloAppEngine extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
-      
-    response.setContentType("text/plain");
-    response.getWriter().println("Hello App Engine!");
+
+      response.setContentType("text/plain");
+      response.getWriter().println("Hello App Engine!");
+
+      response.getWriter().println(Sparql.countMovies());
 
   }
 }
