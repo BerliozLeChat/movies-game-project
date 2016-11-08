@@ -33,7 +33,7 @@ public class HelloAppEngine extends HttpServlet {
 
       response.setContentType("text/plain");
       response.getWriter().println("Hello App Engine!");
-      Questionnaire ques = new Questionnaire();
+      Films ques = new Films();
       ques.affichage_liste(response);
       response.getWriter().println(Sparql.countMovies());
 
