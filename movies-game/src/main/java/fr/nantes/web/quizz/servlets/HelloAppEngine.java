@@ -16,9 +16,11 @@
 
 package fr.nantes.web.quizz.servlets;
 
-import fr.nantes.web.quizz.data.Films;
+import fr.nantes.web.quizz.data.*;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,9 @@ public class HelloAppEngine extends HttpServlet {
 
       response.setContentType("text/plain");
       response.getWriter().println("Hello App Engine!");
-      Films ques = new Films();
-      ques.affichage_liste(response);
+      Film film = Sparql.getMovie(1);
+
+      HashMap<String, String> hmap = Generateurquestionsfilm.getquestionsfilm(film);
+      Generateurquestionsfilm.getquestionsfilm(hmap,response);
   }
 }
