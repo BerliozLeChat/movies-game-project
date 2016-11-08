@@ -32,9 +32,9 @@ public class Requetesdatastore {
         Entity e;
         try {
             response.getWriter().println("Ajout directors avec une limit de "+liste.size());
-            for (i = 1; i < liste.size(); ++i) {
+            for (i = 0; i < liste.size(); ++i) {
                 datastore = DatastoreServiceFactory.getDatastoreService();
-                e = new Entity("directors", i);
+                e = new Entity("directors", i+1);
                 e.setProperty("wiki_director", liste.get(i).getWiki_director());
                 e.setProperty("name_director", liste.get(i).getName_director());
                 datastore = DatastoreServiceFactory.getDatastoreService();
@@ -56,15 +56,19 @@ public class Requetesdatastore {
             }catch (Exception eee){}
         }
     }
-    public static int getcountdirectors() {
+    public static int getcountdirectors(HttpServletResponse response) {
         int nb = 0;
         try{
             DatastoreService datastore;
             datastore = DatastoreServiceFactory.getDatastoreService();
             Key cle_count_directors = KeyFactory.createKey("count_directors",1);
             Entity count_trouve = datastore.get(cle_count_directors);
-            nb = (int) count_trouve.getProperty("valeur");
-        }catch (Exception e){}
+            nb = ((Long) count_trouve.getProperty("valeur")).intValue();
+        }catch (Exception e){
+            try{
+                response.getWriter().println(e.toString());
+            }catch (Exception ee){}
+        }
         return nb;
     }
 }
