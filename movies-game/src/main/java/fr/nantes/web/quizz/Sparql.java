@@ -72,7 +72,7 @@ public class Sparql {
                 "PREFIX dbp: <http://dbpedia.org/property/>\n" +
                 "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\n" +
                 "\n" +
-                "Select ?name ?date ?director ?id_wiki ?id_wiki_director ?lat ?long where\n" +
+                "Select ?name ?date ?name_director ?id_wiki ?id_wiki_director ?lat ?longi where\n" +
                 "{\n" +
                 "        ?x rdf:type dbo:Film.\n" +
                 "        ?x dbp:name ?name.\n" +
@@ -90,16 +90,34 @@ public class Sparql {
                 "}"+
                 "limit 1\n"+
                 "offset "+offset);
+
         QueryExecution exec = QueryExecutionFactory.sparqlService( "http://dbpedia.org/sparql", qs.asQuery() );
 
         ResultSet results = ResultSetFactory.copyResults( exec.execSelect() );
 
         QuerySolution row = results.next();
 
-        int annee = Integer.parseInt(row.get("?date").toString().substring(0,3));
+        int annee = Integer.parseInt(row.get("?date").toString().substring(0,4));
 
-        return new Film(row.get("?name").toString(),row.get("?longitude").toString(),row.get("lattitude").toString(),
-                row.get("?director").toString(),annee,row.get("?id_wiki").toString(),
-                row.get("?id_wiki_director").toString());
+        String name_movie = row.get("?name").toString();
+        name_movie =  name_movie.replace("@en", "");
+
+        String name_director = row.get("?name_director").toString();
+        name_director =  name_director.replace("@en", "");
+
+
+        String lat = row.get("?lat").toString();
+        lat =  lat.replace("^^http://www.w3.org/2001/XMLSchema#float", "");
+
+        String longi = row.get("?longi").toString();
+        longi =  longi.replace("^^http://www.w3.org/2001/XMLSchema#float", "");
+
+        String id_wiki = row.get("?id_wiki").toString();
+        id_wiki =  id_wiki.replace("^^http://www.w3.org/2001/XMLSchema#integer", "");
+
+        String id_wiki_director = row.get("?id_wiki_director").toString();
+        id_wiki_director =  id_wiki_director.replace("^^http://www.w3.org/2001/XMLSchema#integer", "");
+
+        return new Film(name_movie, longi, lat, name_director, annee, id_wiki, id_wiki_director);
     }
 }
