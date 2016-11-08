@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package fr.nantes.web.movies-games;
+package fr.nantes.web.quizz;
 
 import java.io.IOException;
 
