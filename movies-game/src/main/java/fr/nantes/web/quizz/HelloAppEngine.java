@@ -35,7 +35,5 @@ public class HelloAppEngine extends HttpServlet {
       response.getWriter().println("Hello App Engine!");
       Films ques = new Films();
       ques.affichage_liste(response);
-      response.getWriter().println(Sparql.countMovies());
-
   }
 }
