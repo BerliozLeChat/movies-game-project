@@ -1,3 +1,2 @@
 language: java
-script: cd movies-game
-    mvn clean verify
+script: cd movies-game && mvn clean verify
