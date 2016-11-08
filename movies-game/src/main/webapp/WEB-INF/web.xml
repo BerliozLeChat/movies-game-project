@@ -6,7 +6,7 @@
          version="2.5">
   <servlet>
     <servlet-name>HelloAppEngine</servlet-name>
-    <servlet-class>fr.nantes.web.movies-games.HelloAppEngine</servlet-class>
+    <servlet-class>fr.nantes.web.quizz.HelloAppEngine</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloAppEngine</servlet-name>
