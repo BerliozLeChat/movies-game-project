@@ -30,8 +30,9 @@ public class Generateurquestionsfilm {
             int premier_random = -1;
             Random r = new Random();
             int valeur_random;
+            int count_directors = Requetesdatastore.getcountdirectors();
             while (nb_director < 2) {
-                valeur_random = 1 + r.nextInt(500);
+                valeur_random = 1 + r.nextInt(count_directors);
                 Director director = Requetesdatastore.getdirector(valeur_random);
 
                 if (director.getWiki_director() != ("d"+film.getRealisateur()) ) {

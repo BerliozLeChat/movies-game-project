@@ -34,9 +34,8 @@ public class HelloAppEngine extends HttpServlet {
 
       response.setContentType("text/plain");
       response.getWriter().println("Hello App Engine!");
-      Film film = Sparql.getMovie(1);
 
-      HashMap<String, String> hmap = Generateurquestionsfilm.getquestionsfilm(film);
-      Generateurquestionsfilm.getquestionsfilm(hmap,response);
+      Requetesdatastore.adddirectors(500,response);
+
   }
 }
