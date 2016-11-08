@@ -37,5 +37,8 @@ public class HelloAppEngine extends HttpServlet {
 
       Requetesdatastore.adddirectors(500,response);
 
+      Questionnaire quizz = new Questionnaire();
+      response.getWriter().println(quizz.toJson().toJSONString());
+
   }
 }

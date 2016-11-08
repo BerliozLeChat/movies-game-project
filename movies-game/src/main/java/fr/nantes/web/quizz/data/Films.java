@@ -43,4 +43,8 @@ public class Films {
             } catch (Exception e) {}
         }
     }
+
+    public Film get(int index){
+        return liste.get(index);
+    }
 }
