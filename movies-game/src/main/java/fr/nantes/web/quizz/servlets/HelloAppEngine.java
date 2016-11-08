@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package fr.nantes.web.quizz;
+package fr.nantes.web.quizz.servlets;
 
-import com.hp.hpl.jena.query.*;
+import fr.nantes.web.quizz.data.Films;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

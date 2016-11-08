@@ -1,9 +1,7 @@
-package fr.nantes.web.quizz;
+package fr.nantes.web.quizz.data;
 
 import com.hp.hpl.jena.query.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import fr.nantes.web.quizz.data.Film;
 
 /**
  * Created by francois on 08/11/16.

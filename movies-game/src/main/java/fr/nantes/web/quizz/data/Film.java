@@ -1,4 +1,4 @@
-package fr.nantes.web.quizz;
+package fr.nantes.web.quizz.data;
 
 public class Film {
 
