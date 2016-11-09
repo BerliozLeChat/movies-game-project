@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Movies Game</title>
+  <title>AngularJS Plunker</title>
   <script>document.write('<base href="' + document.location + '" />');</script>
   <link href="style.css" rel="stylesheet" />
   <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
@@ -19,7 +19,7 @@
   {{sid}}
   <h1>Score : {{mydonnee_dynamique.score}}</h1>
   <div ng-show="!ready">
-    <h1>Les questions sont en cours de génération ...</h1>
+    <h1>Génération des questions en cours ... ...</h1>
   </div>
   <div ng-show="ready">
     <div ng-show="mydonnee_dynamique.inputgo">
@@ -62,7 +62,7 @@
           <p style="color:green;">Ce film a bien été réalisé par "{{mydonnee_dynamique.resultqui}}"</p>
         </div>
         <div ng-show="!mydonnee_dynamique.resultquitrue">
-          <p style="color:red;">Ce film n'a pas été réalisé par "{{mydonnee_dynamique.resultqui}}" mais par "{{mydonnee_dynamique.quitrue}"</p>
+          <p style="color:red;">Ce film n'a pas été réalisé par "{{mydonnee_dynamique.resultqui}}" mais par "{{mydonnee_dynamique.quitrue}}"</p>
         </div>
         <div ng-show="mydonnee_dynamique.resultquandtrue">
           <p style="color:green;">Ce film a bien été réalisé en "{{mydonnee_dynamique.resultquand}}"</p>
@@ -76,14 +76,26 @@
         <div ng-show="!mydonnee_dynamique.resultoutrue">
           <p style="color:red;">Ce film n'a pas été réalisé en latitude : "{{mydonnee_dynamique.resultlatitude}}" et en longitude : "{{mydonnee_dynamique.resultlongitude}}" mais en latitude : "{{mydonnee_dynamique.latitudetrue}}" et en longitude : "{{mydonnee_dynamique.longitudetrue}}"</p>
         </div>
-
+        <div ng-show="!mydonnee_dynamique.endquestionnaire">
+          <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.suivant()">
+            <input type="submit" value="Film suivant" />
+          </form>
+        </div>
+        <div ng-show="mydonnee_dynamique.endquestionnaire">
+          <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.goendgame()">
+            <input type="submit" value="Fin" />
+          </form>
+        </div>
+      </div>
+      <div ng-show="mydonnee_dynamique.endgame">
+        <p>Merci d'avoir joué à notre jeu :)</p>
+        <p>Si vous souhaitez faire un score encore mieux, cliquez sur REJOUER !</p>
         <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.suivant()">
-          <input type="submit" value="Film suivant" />
+          <input type="submit" value="REJOUER" />
         </form>
       </div>
     </div>
   </div>
-
 </div>
 
 <script src="https://apis.google.com/js/client.js?onload=init"></script>

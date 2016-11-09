@@ -14,6 +14,7 @@
             $scope.movie = [];
 
             var promise = $http.get('/quizzquestions');
+
             promise.success(function(data) {
                 $scope.data = data;
                 $scope.ready = true;
@@ -85,7 +86,11 @@
 
                     this.questionsou=false;
                     this.questionsresult=true;
-
+                    if(this.i<9){
+                        this.endquestionnaire =false;
+                    }else{
+                        this.endquestionnaire =true;
+                    }
                 }
             }
             this.score = 0;
@@ -97,15 +102,21 @@
             this.resultquitrue = false;
             this.resultquandtrue = false;
             this.resultoutrue = false;
-
+            this.endgame = false;
             this.quitrue ="";
             this.quandtrue ="";
             this.latitudetrue =0;
             this.longitudetrue =0;
-
+            this.endquestionnaire=false;
+            this.goendgame =function() {
+                if(this.questionsresult){
+                    this.questionsresult=false;
+                    this.endgame = true;
+                }
+            }
 
             this.suivant =function() {
-                if(this.i<9){
+                if(this.i<9 && !this.endquestionnaire){
                     this.resultqui = "";
                     this.resultquand = "";
                     this.resultlatitude = null;
@@ -117,8 +128,17 @@
                     this.questionsou=false;
                     this.questionsresult=false;
                 }else{
+                    this.endquestionnaire =false;
+                    this.endgame =false;
                     this.questionsresult=false;
                     this.questionnaires =false;
+                    this.i=0;
+                    $scope.ready = false;
+                    promise = $http.get('/quizzquestions');
+                    promise.success(function(data) {
+                        $scope.data = data;
+                        $scope.ready = true;
+                    });
                     this.inputgo =true;
                 }
             }
