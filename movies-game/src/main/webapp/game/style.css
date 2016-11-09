@@ -1,12 +1,27 @@
-/* Put your css in here */
-
 body{
     background-color: #f1ebc7;
-    text-align:center;
+}
+#div_game{
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height: auto;
+    background-color: #35889a;
+    color: #f1ebc7;
+    border: solid;
+    font-size: 15px;
 }
 
-#input_connection input[type="submit"], #input_jeu input[type="submit"] {
+#resultats {
+    background: rgba(255, 255, 255, 0.52);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#div_game input[type="submit"] {
     margin-top: 20px;
+    width: 25%;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 19px;
@@ -17,11 +32,23 @@ body{
     color: #f1ebc7;
     cursor: pointer;
 }
-
-#input_connection input[type="submit"]:hover, #input_jeu input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #f1ebc7 !important;
     color: #343642 !important;
 }
+#choix{
+    font-size: 20px;
+}
+
+#barre{
+    display: block;
+    height: 15px;
+    background: #343642;
+    margin-left: 5%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
 
 #header{
     display: inline-block;
