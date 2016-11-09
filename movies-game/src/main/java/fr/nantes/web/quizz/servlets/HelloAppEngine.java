@@ -17,8 +17,14 @@
 package fr.nantes.web.quizz.servlets;
 
 import fr.nantes.web.quizz.data.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -35,10 +41,7 @@ public class HelloAppEngine extends HttpServlet {
       response.setContentType("text/plain");
       response.getWriter().println("Hello App Engine!");
 
-      Requetesdatastore.adddirectors(500,response);
-
-      Questionnaire quizz = new Questionnaire();
-      response.getWriter().println(quizz.toJson().toJSONString());
-
+      Questionnaire questionnaire = new Questionnaire();
+      response.getWriter().println(questionnaire.toJsonstring());
   }
 }
