@@ -41,7 +41,5 @@ public class HelloAppEngine extends HttpServlet {
       response.setContentType("text/plain");
       response.getWriter().println("Hello App Engine!");
 
-      Questionnaire questionnaire = new Questionnaire();
-      response.getWriter().println(questionnaire.toJsonstring());
   }
 }
