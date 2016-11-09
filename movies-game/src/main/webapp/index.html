@@ -1,22 +1,93 @@
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>Hello App Engine</title>
-  </head>
+<!DOCTYPE html>
+<html ng-app="plunker">
 
-  <body>
-    <h1>Hello App Engine!</h1>
-  
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href='/hello'>The servlet</a></td>
-      </tr>
-    </table>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Movies Game</title>
+  <script>document.write('<base href="' + document.location + '" />');</script>
+  <link href="style.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body>
+<p>Hello !</p>
+<a href='/hello'>The servlet</a>
+<div ng-controller="madonnee_dynamique as mydonnee_dynamique">
+
+  {{sname}}
+  {{sid}}
+  <h1>Score : {{mydonnee_dynamique.score}}</h1>
+  <div ng-show="!ready">
+    <h1>Les questions sont en cours de génération ...</h1>
+  </div>
+  <div ng-show="ready">
+    <div ng-show="mydonnee_dynamique.inputgo">
+      <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.go()">
+        <input type="submit" value="Commencer" />
+      </form>
+    </div>
+    <div ng-show="mydonnee_dynamique.questionnaires">
+      <h1>Film {{mydonnee_dynamique.i+1}}</h1>
+      <h1>{{movie.nom}}</h1>
+      <div ng-show="mydonnee_dynamique.questionsqui">
+        <p>Qui a réalisé ce film ?</p>
+        <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.goquand()">
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultqui" value={{movie.qui_r1}}>{{movie.qui_r1}}</label><br>
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultqui" value={{movie.qui_r2}}>{{movie.qui_r2}}</label><br>
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultqui" value={{movie.qui_r3}}>{{movie.qui_r3}}</label><br>
+          <input type="submit" value="Valier" />
+        </form>
+      </div>
+      <div ng-show="mydonnee_dynamique.questionsquand">
+        <p>Quand a été réalisé ce film ?</p>
+        <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.goou()">
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultquand" value={{movie.quand_r1}}>{{movie.quand_r1}}</label><br>
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultquand" value={{movie.quand_r2}}>{{movie.quand_r2}}</label><br>
+          <label><input type="radio" name="cbox1" ng-model="mydonnee_dynamique.resultquand" value={{movie.quand_r3}}>{{movie.quand_r3}}</label><br>
+          <input type="submit" value="Valier" />
+        </form>
+      </div>
+      <div ng-show="mydonnee_dynamique.questionsou">
+        <p>Ou a été réalisé ce film ?</p>
+        <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.goresult()">
+          <label>Latitude : <input type="number" name="cbox1" ng-model="mydonnee_dynamique.resultlatitude"></label><br>
+          <label>Longitude : <input type="number" name="cbox1" ng-model="mydonnee_dynamique.resultlongitude"></label><br>
+          <input type="submit" value="Valider" />
+        </form>
+      </div>
+      <div ng-show="mydonnee_dynamique.questionsresult">
+        <p>RESULTATS : </p>
+        <div ng-show="mydonnee_dynamique.resultquitrue">
+          <p style="color:green;">Ce film a bien été réalisé par "{{mydonnee_dynamique.resultqui}}"</p>
+        </div>
+        <div ng-show="!mydonnee_dynamique.resultquitrue">
+          <p style="color:red;">Ce film n'a pas été réalisé par "{{mydonnee_dynamique.resultqui}}" mais par "{{mydonnee_dynamique.quitrue}"</p>
+        </div>
+        <div ng-show="mydonnee_dynamique.resultquandtrue">
+          <p style="color:green;">Ce film a bien été réalisé en "{{mydonnee_dynamique.resultquand}}"</p>
+        </div>
+        <div ng-show="!mydonnee_dynamique.resultquandtrue">
+          <p style="color:red;">Ce film n'a pas été réalisé en "{{mydonnee_dynamique.resultquand}}" mais en "{{mydonnee_dynamique.quandtrue}}"</p>
+        </div>
+        <div ng-show="mydonnee_dynamique.resultoutrue">
+          <p style="color:green;">Ce film a bien été réalisé en latitude : "{{mydonnee_dynamique.resultlatitude}}" et en longitude : "{{mydonnee_dynamique.resultlongitude}}"</p>
+        </div>
+        <div ng-show="!mydonnee_dynamique.resultoutrue">
+          <p style="color:red;">Ce film n'a pas été réalisé en latitude : "{{mydonnee_dynamique.resultlatitude}}" et en longitude : "{{mydonnee_dynamique.resultlongitude}}" mais en latitude : "{{mydonnee_dynamique.latitudetrue}}" et en longitude : "{{mydonnee_dynamique.longitudetrue}}"</p>
+        </div>
+
+        <form name="reviewForm_dynamique" ng-submit="mydonnee_dynamique.suivant()">
+          <input type="submit" value="Film suivant" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+</body>
+
 </html>

@@ -56,7 +56,7 @@ public class Requetesdatastore {
             }catch (Exception eee){}
         }
     }
-    public static int getcountdirectors(HttpServletResponse response) {
+    public static int getcountdirectors() {
         int nb = 0;
         try{
             DatastoreService datastore;
@@ -65,9 +65,6 @@ public class Requetesdatastore {
             Entity count_trouve = datastore.get(cle_count_directors);
             nb = ((Long) count_trouve.getProperty("valeur")).intValue();
         }catch (Exception e){
-            try{
-                response.getWriter().println(e.toString());
-            }catch (Exception ee){}
         }
         return nb;
     }

@@ -9,7 +9,7 @@
     <artifactId>movies-game</artifactId>
 
     <properties>
-        <app.id>sage-philosophy-142713</app.id>
+        <app.id>moviesgameoff</app.id>
         <app.version>1</app.version>
         <appengine.version>1.9.44</appengine.version>
         <gcloud.plugin.version>133</gcloud.plugin.version>
