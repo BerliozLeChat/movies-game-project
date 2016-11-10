@@ -61,6 +61,7 @@
             $scope.questionsresult=false;
             $scope.go =function() {
                 if($scope.ready){
+                    $scope.score=0;
                     $scope.movie = $scope.data[0]["0"];
                     $scope.inputgo =false;
                     $scope.i = 0;
