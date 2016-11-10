@@ -12,6 +12,19 @@
     <servlet-name>Quizzquestions</servlet-name>
     <servlet-class>fr.nantes.web.quizz.servlets.Quizzquestions</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Nbmovies</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.Nbmovies</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Nbdirectors</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.Nbdirectors</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Adddirectors</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.Adddirectors</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>HelloAppEngine</servlet-name>
     <url-pattern>/hello</url-pattern>
@@ -19,6 +32,18 @@
   <servlet-mapping>
     <servlet-name>Quizzquestions</servlet-name>
     <url-pattern>/quizzquestions</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Nbmovies</servlet-name>
+    <url-pattern>/nbmovies</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Nbdirectors</servlet-name>
+    <url-pattern>/nbdirectors</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Adddirectors</servlet-name>
+    <url-pattern>/adddirectors</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

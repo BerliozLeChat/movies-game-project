@@ -1,0 +1,53 @@
+
+#administration input[type="submit"] {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+    border: solid;
+    border-color: #343642;
+    border-radius: 15px;
+    background-color: #35889a;
+    color: #f1ebc7;
+    cursor: pointer;
+}
+
+#administration input[type="submit"]:hover {
+    background-color: #f1ebc7 !important;
+    color: #343642 !important;
+}
+
+.resultats {
+    background-color: rgba(151, 157, 157, 0.68);
+    border: solid #35889a;
+}
+
+.commandes, .resultats {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    min-width: 400px;
+    padding: 0% 1% 0% 1%;
+}
+.commandes {
+    margin-top: -10px;
+}
+.commandes form {
+    border: solid #35889a;
+    padding: 7px;
+    display: block;
+    margin-top: 10px;
+    background-color: #b3b5aa;
+}
+
+.functionvalid {
+    color: green;
+}
+
+.erreur {
+    color: #962d3e;
+}
+
+.commandes input[type="submit"] {
+    margin-bottom: 20px;
+}

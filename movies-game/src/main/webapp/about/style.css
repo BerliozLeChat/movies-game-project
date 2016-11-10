@@ -1,0 +1,40 @@
+
+.person {
+    display: inline-block;
+    width: 25%;
+    margin-top: 25px;
+    padding: 28px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgba(52, 54, 66, 0.55);
+    border: solid #35889a;
+    height: auto;
+    color: #f3ebc7;
+}
+
+img#photo {
+    width: 80%;
+    height: 350px;
+    border-radius: 15px;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+#about{
+    text-align: center;
+}
+
+#description_app {
+    width: 80%;
+    display: inline-block;
+    text-align: justify;
+}
+
+.barre_about {
+    display: inline-block;
+    height: 2px;
+    width: 60%;
+    margin-left: 15%;
+    background: #35889a;
+    margin-right: 15%;
+}

@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('plunker', []);
+    var app = angular.module('movies-game', []);
 
     app.directive('myCurrentTime', ['$interval', 'dateFilter',
         function($interval, dateFilter) {

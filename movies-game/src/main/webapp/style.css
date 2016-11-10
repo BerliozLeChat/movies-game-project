@@ -1,11 +1,6 @@
 /* Put your css in here */
 
-body{
-    background-color: #f1ebc7;
-    text-align:center;
-}
-
-#input_connection input[type="submit"], #input_jeu input[type="submit"] {
+#input_administration input[type="submit"],#input_connection input[type="submit"], #input_jeu input[type="submit"] {
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -18,29 +13,7 @@ body{
     cursor: pointer;
 }
 
-#input_connection input[type="submit"]:hover, #input_jeu input[type="submit"]:hover {
+#input_administration input[type="submit"]:hover,#input_connection input[type="submit"]:hover, #input_jeu input[type="submit"]:hover {
     background-color: #f1ebc7 !important;
     color: #343642 !important;
-}
-
-#header{
-    display: inline-block;
-    width: 100%;
-    background: #35889a;
-    margin-top: -8px;
-    margin-left: -8px;
-    padding: 8px;
-    margin-bottom: 15px;
-}
-
-#headerleft{
-    display: inline-block;
-    width: 49%;
-    text-align: left;
-}
-
-#headerright{
-    display: inline-block;
-    width: 49%;
-    text-align: right;
 }

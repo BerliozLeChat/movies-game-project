@@ -24,37 +24,27 @@ public class Requetesdatastore {
         return new Director(name_director,wiki_director);
     }
 
-    public static void adddirectors(int limit, HttpServletResponse response) {
+    public static boolean adddirectors(int limit) {
         ArrayList<Director> liste = Sparql.getDirectors(limit);
         int i =0;
         DatastoreService datastore;
         Key cle_date;
         Entity e;
-        try {
-            response.getWriter().println("Ajout directors avec une limit de "+liste.size());
-            for (i = 0; i < liste.size(); ++i) {
-                datastore = DatastoreServiceFactory.getDatastoreService();
-                e = new Entity("directors", i+1);
-                e.setProperty("wiki_director", liste.get(i).getWiki_director());
-                e.setProperty("name_director", liste.get(i).getName_director());
-                datastore = DatastoreServiceFactory.getDatastoreService();
-                datastore.put(e);
-                response.getWriter().println("Add director wiki : "+ liste.get(i).getWiki_director() + " succesfull");
-                response.getWriter().println("-----------------------------------------------------");
-            }
-            e = new Entity("count_directors", 1);
-            e.setProperty("valeur",i);
+        int count_directors=Requetesdatastore.getcountdirectors();
+        for (i = count_directors; i < liste.size(); ++i) {
+            datastore = DatastoreServiceFactory.getDatastoreService();
+            e = new Entity("directors", i+1);
+            e.setProperty("wiki_director", liste.get(i).getWiki_director());
+            e.setProperty("name_director", liste.get(i).getName_director());
             datastore = DatastoreServiceFactory.getDatastoreService();
             datastore.put(e);
-            response.getWriter().println("Add "+ i + " directors");
-            response.getWriter().println("-----------------------------------------------------");
-
-
-        }catch (Exception ex){
-            try{
-                response.getWriter().println(ex.toString());
-            }catch (Exception eee){}
         }
+        e = new Entity("count_directors", 1);
+        e.setProperty("valeur",i);
+        datastore = DatastoreServiceFactory.getDatastoreService();
+        datastore.put(e);
+
+        return (Requetesdatastore.getcountdirectors()==limit);
     }
     public static int getcountdirectors() {
         int nb = 0;
