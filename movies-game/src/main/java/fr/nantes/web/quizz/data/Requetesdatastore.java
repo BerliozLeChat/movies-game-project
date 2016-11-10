@@ -46,6 +46,31 @@ public class Requetesdatastore {
 
         return (Requetesdatastore.getcountdirectors()==limit);
     }
+
+    public static String addadmin(String id) {
+        DatastoreService datastore;
+        Key cle_date;
+        Entity e;
+        datastore = DatastoreServiceFactory.getDatastoreService();
+        e = new Entity("admin", id);
+        e.setProperty("admin", true);
+        datastore.put(e);
+        return (id);
+    }
+
+    public static boolean isadmin(String id) {
+        boolean isadmin = false;
+        DatastoreService datastore;
+        datastore = DatastoreServiceFactory.getDatastoreService();
+        Key cle_admin = KeyFactory.createKey("admin",id);
+        try{
+            Entity admin_trouve = datastore.get(cle_admin);
+            isadmin = (boolean) admin_trouve.getProperty("admin");
+        } catch (Exception e){}
+
+        return isadmin;
+    }
+
     public static int getcountdirectors() {
         int nb = 0;
         try{

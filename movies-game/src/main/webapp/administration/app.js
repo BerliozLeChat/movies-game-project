@@ -8,6 +8,10 @@
             $scope.ajout_directors=false;
             $scope.ajout_directors_erreur=false;
 
+            $scope.ajout_admin_attente=false;
+            $scope.ajout_admin=false;
+            $scope.ajout_admin_erreur=false;
+
             $scope.nb_directors_disponible_attente=false;
             $scope.nb_directors_disponible=false;
             $scope.nb_directors_disponible_erreur=false;
@@ -25,6 +29,8 @@
             $scope.nbmovies=-1;
             $scope.generationjson="";
             $scope.directorsadd=-1;
+            $scope.idadmin = "";
+            $scope.adminadd ="";
 
             $scope.function_ajoutdirectors =function() {
                 $scope.ajout_directors_attente=true;
@@ -47,6 +53,33 @@
                     $scope.ajout_directors=false;
                     $scope.ajout_directors_erreur=true;
                 });
+            }
+
+
+            $scope.function_ajoutadmin =function() {
+                if($scope.idadmin!=""){
+                    $scope.ajout_admin_attente=true;
+                    var promise = $http.get('/addadmin', {
+                        params: {idadmin: $scope.idadmin}
+                    });
+                    promise.success(function (data) {
+                        $scope.adminadd = data["0"]["idadmin"];
+                        if (data["0"]["idadmin"] == $scope.idadmin) {
+                            $scope.ajout_admin_attente = false;
+                            $scope.ajout_admin = true;
+                            $scope.ajout_admin_erreur = false;
+                        } else {
+                            $scope.ajout_admin_attente = false;
+                            $scope.ajout_admin = false;
+                            $scope.ajout_admin_erreur = true;
+                        }
+                    }).error(function (data, status) {
+                        $scope.ajout_admin_attente = false;
+                        $scope.ajout_admin = false;
+                        $scope.ajout_admin_erreur = true;
+
+                    });
+                }
             }
 
             $scope.function_nbdirectors =function() {
@@ -99,6 +132,10 @@
                 $scope.ajout_directors=false;
                 $scope.ajout_directors_erreur=false;
 
+                $scope.ajout_admin_attente=false;
+                $scope.ajout_admin=false;
+                $scope.ajout_admin_erreur=false;
+
                 $scope.nb_directors_disponible_attente=false;
                 $scope.nb_directors_disponible=false;
                 $scope.nb_directors_disponible_erreur=false;
@@ -115,6 +152,8 @@
                 $scope.nbmovies=-1;
                 $scope.generationjson="";
                 $scope.directorsadd=-1;
+                $scope.idadmin ="";
+                $scope.adminadd ="";
 
             }
 

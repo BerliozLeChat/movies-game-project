@@ -5,15 +5,15 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 19px;
-    border: solid;
-    border-color: #343642;
-    border-radius: 15px;
+    border: solid 1px #35889a !important;
     background-color: #35889a;
     color: #f1ebc7;
     cursor: pointer;
+    width: 200px;
 }
 
 #input_administration input[type="submit"]:hover,#input_connection input[type="submit"]:hover, #input_jeu input[type="submit"]:hover {
     background-color: #f1ebc7 !important;
     color: #343642 !important;
+    border: solid 3px #35889a !important;
 }

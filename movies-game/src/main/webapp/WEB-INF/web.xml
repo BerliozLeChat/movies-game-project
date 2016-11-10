@@ -24,7 +24,18 @@
     <servlet-name>Adddirectors</servlet-name>
     <servlet-class>fr.nantes.web.quizz.servlets.Adddirectors</servlet-class>
   </servlet>
-
+  <servlet>
+  <servlet-name>Addadmin</servlet-name>
+  <servlet-class>fr.nantes.web.quizz.servlets.Addadmin</servlet-class>
+</servlet>
+  <servlet>
+    <servlet-name>getUser</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUser</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloAppEngine</servlet-name>
     <url-pattern>/hello</url-pattern>
@@ -45,7 +56,12 @@
     <servlet-name>Adddirectors</servlet-name>
     <url-pattern>/adddirectors</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Addadmin</servlet-name>
+    <url-pattern>/addadmin</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 </web-app>

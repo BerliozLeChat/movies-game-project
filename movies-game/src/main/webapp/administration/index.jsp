@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr"  ng-app="movies-game">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<%@ page import="com.google.appengine.api.users.User" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@page import="java.util.*"%>
+
+<%
+
+    String nomUser = (String) request.getAttribute("nomUser");
+    String idUser = (String) request.getAttribute("idUser");
+    boolean connexion;
+    boolean admin = false;
+    String url;
+    if (request.getAttribute("nomUser") == null){
+        connexion = false;
+        url = (String) request.getAttribute("urlCo");
+        response.sendRedirect("/");
+    }else{
+        connexion = true;
+        url = (String) request.getAttribute("urlDeco");
+        admin = (boolean) request.getAttribute("admin");
+        if(!admin)
+            response.sendRedirect("/");
+    }
+%>
 <head>
     <meta charset="utf-8" />
     <title>Movies game</title>
@@ -20,7 +46,12 @@
         <a href="https://moviesgameoff.appspot.com/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
     </div>
     <div id="headerright">
-        <div class="link_right"><a id="mon compte" href="https://moviesgameoff.appspot.com/">Mon Compte</a></div>
+        <% if(connexion){ %>
+        <div class="link_right"><a id="mon compte" href="https://moviesgameoff.appspot.com/account/">Mon Compte</a></div>
+        <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
+        <% }else{ %>
+        <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
+        <% } %>
         <div class="link_right"><a id="about" href="https://moviesgameoff.appspot.com/about/">A propos</a></div>
         <div class="link_right"><a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a></div>
     </div>
@@ -33,6 +64,11 @@
             <label>Nombre de directors à mettre en tout dans le datastore : <input type="number" name="cbox1" ng-model="nbdirectors"></label><br>
             <p>{{nbdirectors}}</p>
             <input type="submit" value="Update datastore des directors" />
+        </form>
+        <form name="reviewForm_dynamique" ng-submit="function_ajoutadmin()">
+            <label>id du user à ajouter en tant qu'admin : <input type="text" name="cbox1" ng-model="idadmin"></label><br>
+            <p>{{idadmin}}</p>
+            <input type="submit" value="Ajouter en Admin !" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbdirectors()">
             <input type="submit" value="Compter le nombre de directors disponible" />
@@ -56,6 +92,15 @@
         <div ng-show="ajout_directors_erreur" class="erreur">
             <p>Une Erreur s'est produite lors de l'ajout de {{nbdirectors}} directors !!!!!</p>
             <sub>(Attention il est possible que vous essayez d'ajouter un nombre plus faible que le nombre actuel de directors ou que le serveur soit saturé, veuillez vérifier que l'ajout a réelement échoué puis relancez la requète jusqu'au succes ;) ...)</sub>
+        </div>
+        <div ng-show="ajout_admin_attente" class="wait">
+            <p>L'ajout de {{idadmin}} en admin est en cours ... ...</p>
+        </div>
+        <div ng-show="ajout_admin" class="functionvalid">
+            <p>L'ajout de {{idadmin}} a bien été ajoutés.</p>
+        </div>
+        <div ng-show="ajout_admin_erreur" class="erreur">
+            <p>Une Erreur s'est produite lors de l'ajout de {{idadmin}} en admin !!!!!</p>
         </div>
         <div ng-show="nb_directors_disponible_attente" class="wait">
             <p>La demande du nombre de directors est en cours ... ...</p>

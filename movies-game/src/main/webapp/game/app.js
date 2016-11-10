@@ -1,6 +1,14 @@
 (function() {
 
-    var app = angular.module('movies-game', []);
+    var app = angular.module('movies-game', ['ngMap']);
+
+    app.run(function($rootScope) {
+        $rootScope.$on('mapInitialized', function(evt,map) {
+            $rootScope.map = map;
+            $rootScope.$apply();
+        });
+    })
+
 
     app.directive('myCurrentTime', ['$interval', 'dateFilter',
         function($interval, dateFilter) {
@@ -45,8 +53,8 @@
             promise.success(function(data) {
                 $scope.data = data;
                 $scope.ready = true;
+                $scope.mapshow = false;
             });
-
             $scope.score=0;
             $scope.i = 0;
             $scope.affiche_form = false;
@@ -60,7 +68,8 @@
             $scope.questionsou=false;
             $scope.questionsresult=false;
             $scope.go =function() {
-                if($scope.ready){
+                if($scope.ready&&$scope.timerchoix != 10000){
+                    $scope.mapshow = false;
                     $scope.score=0;
                     $scope.movie = $scope.data[0]["0"];
                     $scope.inputgo =false;
@@ -96,6 +105,8 @@
                     $scope.questionsqui=false;
                     $scope.questionsquand=false;
                     $scope.questionsou=true;
+                    $scope.mapshow = true;
+
                 }
             }
             $scope.goresult =function() {
@@ -133,8 +144,9 @@
                         $scope.score = $scope.score + (60*$scope.bonus);
                     else if($scope.resultquitrue||$scope.resultquandtrue||$scope.resultoutrue)
                         $scope.score = $scope.score + (25*$scope.bonus);
-
+                    $scope.mapshow = false;
                     $scope.questionsou=false;
+
                     $scope.questionsresult=true;
                     if($scope.i<9){
                         $scope.endquestionnaire =false;
@@ -148,6 +160,7 @@
             $scope.resultquand = "";
             $scope.resultlatitude = null;
             $scope.resultlongitude = null;
+            $scope.mapshow = true;
 
             $scope.resultquitrue = false;
             $scope.resultquandtrue = false;
@@ -172,6 +185,7 @@
                     $scope.resultquand = "";
                     $scope.resultlatitude = null;
                     $scope.resultlongitude = null;
+                    $scope.latlng = [null,null];
                     $scope.i++;
                     $scope.movie = $scope.data[0][$scope.i];
                     $interval.cancel(stop);
@@ -179,6 +193,7 @@
                     $scope.timer = $scope.timerchoix;
                     if($scope.timer!=1000)
                         $scope.gotimer();
+                    $scope.mapshow = false;
                     $scope.questionsqui=true;
                     $scope.questionsquand=false;
                     $scope.questionsou=false;
@@ -199,7 +214,7 @@
                 }
             }
 
-            $scope.timerchoix = 1000;
+            $scope.timerchoix = 10000;
             $scope.timer = 25;
             var stop;
             $scope.timeout_qui = false;
@@ -223,6 +238,22 @@
                     }
                 }, 100);
             };
+
+            $scope.latlng = [null,null];
+
+            $scope.getpos = function(event) {
+                $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
+                $scope.resultlatitude = event.latLng.lat();
+                $scope.resultlongitude = event.latLng.lng();
+            }
         }
+
     ]);
+    app.run(function($rootScope) {
+        $rootScope.$on('mapInitialized', function(evt,map) {
+            $rootScope.map = map;
+            $rootScope.$apply();
+        });
+    })
+
 })();

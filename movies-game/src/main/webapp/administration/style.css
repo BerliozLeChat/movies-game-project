@@ -6,15 +6,18 @@
     font-size: 19px;
     border: solid;
     border-color: #343642;
-    border-radius: 15px;
     background-color: #35889a;
     color: #f1ebc7;
     cursor: pointer;
+    width: 100%;
+    border: solid 1px #35889a !important;
+    margin-bottom: 5px;
 }
 
 #administration input[type="submit"]:hover {
-    background-color: #f1ebc7 !important;
+    background-color: rgba(241, 235, 199, 0.5) !important;
     color: #343642 !important;
+    border: solid 3px #35889a !important;
 }
 
 .resultats {
