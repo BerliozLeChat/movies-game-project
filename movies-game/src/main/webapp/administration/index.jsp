@@ -23,6 +23,9 @@
         connexion = true;
         url = (String) request.getAttribute("urlDeco");
         admin = (boolean) request.getAttribute("admin");
+        // a supprimer une fois l'id du compte ajouter en admin 
+        admin = true;
+        
         if(!admin)
             response.sendRedirect("/");
     }
