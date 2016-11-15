@@ -4,9 +4,4 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_5f4e08048c3d_key -iv $encrypted_5f4e08048c3d_iv -in Moviesgameoff-c7b0dec98bcb.json.enc -out Moviesgameoff-c7b0dec98bcb.json -d
 install: 
 - cd movies-game && mvn clean install
-deploy: 
-    provider:gae
-    skip_cleanup:true
-    keyfile:Moviesgameoff-c7b0dec98bcb.json 
-    project:moviesgameoff
-    default:true
+deploy: provider:gae skip_cleanup:true keyfile:Moviesgameoff-c7b0dec98bcb.json project:moviesgameoff default:true
