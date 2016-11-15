@@ -5,7 +5,8 @@ before_install:
 install: 
 - cd movies-game && mvn clean install
 deploy: 
-    provider:gae 
+    provider:gae
+    skip_cleanup:true
     keyfile:Moviesgameoff-c7b0dec98bcb.json 
     project:moviesgameoff
     default:true
