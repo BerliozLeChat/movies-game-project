@@ -31,7 +31,7 @@
   
   <link href="https://fonts.googleapis.com/css?family=Signika|Montserrat" rel="stylesheet"> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link href="styleheader.css" rel="stylesheet" />
+  <link href="../styleheader.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   
   <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
