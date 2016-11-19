@@ -35,7 +35,7 @@
     <title>Movies game</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link href="style.css" rel="stylesheet" />
-    <link href="/styleheader.css" rel="stylesheet" />
+    <link href="../styleheader.css" rel="stylesheet" />
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
     <script type="text/javascript" src="app.js"></script>
     <meta name="description" content="game Movies Game">
@@ -48,7 +48,7 @@
     <div id="headerleft">
         <a href="https://moviesgameoff.appspot.com/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
     </div>
-    <div id="headerright">
+    <div id="headercenter">
         <% if(connexion){ %>
         <div class="link_right"><a id="mon compte" href="https://moviesgameoff.appspot.com/account/">Mon Compte</a></div>
         <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
@@ -56,7 +56,9 @@
         <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
         <% } %>
         <div class="link_right"><a id="about" href="https://moviesgameoff.appspot.com/about/">A propos</a></div>
-        <div class="link_right"><a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a></div>
+    </div>
+    <div id="headerright">
+        <a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
     </div>
 </div>
 
