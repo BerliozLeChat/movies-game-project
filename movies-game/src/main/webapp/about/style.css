@@ -1,7 +1,6 @@
-
 .person {
     display: inline-block;
-    width: 20%;
+    width: 18%;
     margin-top: 25px;
     padding: 28px;
     margin-left: 5px;
@@ -14,18 +13,27 @@
 
 .photoContainer {
     width: 100%;
-    height: 350px;
+	height: 0;
+	padding-bottom: 100%;
     border-radius: 15px;
-	overflow:hidden
+	background-position: center center;
+	background-repeat: no-repeat;    
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-img#photo {
+#photo {
     max-width: 100%;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
 
+.description {
+  color:#FAB75C;
+}
 
-#about, #description_app p{
+#description_app p{
     text-align: center;
 }
 
@@ -35,7 +43,7 @@ img#photo {
     text-align: justify;
 }
 
-.barre_about {
+.barre_about {	
     display: inline-block;
     height: 2px;
     width: 60%;

@@ -1,28 +1,6 @@
-
-#administration input[type="submit"] {
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 19px;
-    border: solid;
-    border-color: #343642;
-    background-color: #35889a;
-    color: #f1ebc7;
-    cursor: pointer;
-    width: 100%;
-    border: solid 1px #35889a !important;
-    margin-bottom: 5px;
-}
-
-#administration input[type="submit"]:hover {
-    background-color: rgba(241, 235, 199, 0.5) !important;
-    color: #343642 !important;
-    border: solid 3px #35889a !important;
-}
-
 .resultats {
-    background-color: rgba(151, 157, 157, 0.68);
-    border: solid #35889a;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid #FAB75C;
 }
 
 .commandes, .resultats {
@@ -36,11 +14,11 @@
     margin-top: -10px;
 }
 .commandes form {
-    border: solid #35889a;
+    border: solid #FAB75C;
     padding: 7px;
     display: block;
     margin-top: 10px;
-    background-color: #b3b5aa;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .functionvalid {
