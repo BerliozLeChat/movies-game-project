@@ -23,7 +23,7 @@
 }
 .movieTitle {
   font-family: 'Signika', sans-serif;
-  color:lightskyblue;
+  color:#FAB75C;
 }
 
 .input { 
@@ -70,7 +70,7 @@
 #barre{
     display: block;
     height: 15px;
-    background: #343642;
+    background: #FAB75C;
     margin-left: 5%;
     border-radius: 10px;
     margin-bottom: 10px;

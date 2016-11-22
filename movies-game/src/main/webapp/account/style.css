@@ -3,5 +3,13 @@
     display: inline-block !important;
 }
  h1 {
-  color:lightskyblue;
+  color:#FAB75C;
  }
+
+div#account {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+}

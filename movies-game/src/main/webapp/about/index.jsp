@@ -55,8 +55,7 @@
     <div class="barre_about"></div>
     <div id="description_app"><p>Dans le cadre de notre master informatique en architectures logicielles, nous avons créer une application web déployée avec Google App Engine. Grâce à nos cours de Web&Cloud encadré par M. Molly, nous avons pu réaliser
     cette application. Elle consiste à répondre à un quizz portant sur 10 films et que chaque film possède 3 questions (Qui ?, Quand ?, Où ?).
-    Si le joueur, connecté via son compte google, réussi à atteindre le tableau des meilleurs score celui-ci entre alors dans le tableau.
-    (Les données des films sont des données libres, récupérées via une requète Sparql sur DBpedia)</p></div>
+    Si le joueur, connecté via son compte google, réussi à atteindre le tableau des meilleurs score celui-ci entre alors dans le tableau (Les données des films sont des données libres, récupérées via une requète Sparql sur DBpedia).</p></div>
     <div class="barre_about">
     </div>
     <div class="person">

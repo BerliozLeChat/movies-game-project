@@ -33,6 +33,7 @@ img#photo {
     width: 80%;
     display: inline-block;
     text-align: justify;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .barre_about {
@@ -42,4 +43,8 @@ img#photo {
     margin-left: 15%;
     background: #FAB75C;
     margin-right: 15%;
+}
+
+.photoContainer img {
+    border-radius: 15px;
 }
