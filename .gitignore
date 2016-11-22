@@ -1,3 +1,11 @@
 movies-game/.idea/
 movies-game/movies-game.iml
 movies-game/target/
+.metadata/*
+movies-game/.classpath
+movies-game/.project
+movies-game/.settings/*
+movies-game/src/main/java/fr/nantes/web/quizz/data/Main.java
+testapi/*
+untitled/*
+RemoteSystemsTempFiles/*

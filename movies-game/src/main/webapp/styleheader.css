@@ -1,5 +1,5 @@
 body{
-    background: url("http://cdn.wallpapersafari.com/7/84/1j4eFX.jpg") no-repeat center center fixed;
+    background: url("background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -75,6 +75,8 @@ a {
     min-width: 50px;
 }
 
-.link_right a:hover, #headerleft a:hover, #headerright a:hover{
-    font-size: 110%;
+a:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
