@@ -151,8 +151,8 @@
             <p>Veuillez cliquer l'endroit sur la map en dessous !</p>
             <p>Pays sélectionné : {{paysselect}}</p>
 
-            <div ng-show="repondu && resultoutrue" class="alert alert-success" role="alert">bonne réponse.</div>
-            <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">mauvaise réponse.</div>
+            <div ng-show="repondu && resultoutrue" class="alert alert-success" role="alert">Bonne réponse.</div>
+            <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">Mauvaise réponse, le pays est : {{pays}}.</div>
           </div>
           <div ng-show="questionsresult">
             <button id="nextfilm" value="nextfilm" name="nextfilm" ng-click ="suivant()" class="btn" ng-show="!endquestionnaire">Film suivant</button> <br/>

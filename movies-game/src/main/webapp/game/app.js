@@ -246,24 +246,25 @@
                             }
                         }
                     }
+                    $scope.pays = $scope.movie.pays;
+
+                    if($scope.pays.match(".*"+$scope.paysselect+".*")){
+                        $scope.resultoutrue = true;
+                        $scope.score = $scope.score + 10;
+                    }
+                    else
+                        $scope.resultoutrue = false;
+
+                    $scope.repondu = true;
+                    $scope.questionsresult=true;
+                    if($scope.i<9){
+                        $scope.endquestionnaire =false;
+                    }else{
+                        $scope.endquestionnaire =true;
+                    }
                 });
 
-                $scope.pays = $scope.movie.pays;
 
-                if($scope.pays == $scope.paysselect){
-                    $scope.resultoutrue = true;
-                    $scope.score = $scope.score + 10;
-                }
-                else
-                    $scope.resultoutrue = false;
-
-                $scope.repondu = true;
-                $scope.questionsresult=true;
-                if($scope.i<9){
-                    $scope.endquestionnaire =false;
-                }else{
-                    $scope.endquestionnaire =true;
-                }
 
             }
         }
