@@ -149,8 +149,7 @@
             <h1>Ou a été réalisé ce film ?</h1>
 
             <p>Veuillez cliquer l'endroit sur la map en dessous !</p>
-            <p>Latitude sélectionnée : {{resultlatitude}}</p>
-            <p>Longitude sélectionnée : {{resultlongitude}}</p>
+            <p>Pays sélectionné : {{paysselect}}</p>
 
             <div ng-show="repondu && resultoutrue" class="alert alert-success" role="alert">bonne réponse.</div>
             <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">mauvaise réponse.</div>

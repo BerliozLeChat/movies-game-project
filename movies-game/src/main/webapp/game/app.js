@@ -106,6 +106,7 @@
                     $scope.timer = $scope.timerchoix;
                     if($scope.timer!=1000)
                         $scope.gotimer();
+                    $scope.paysselect ="";
                     $scope.questionsqui=false;
                     $scope.questionsquand=false;
                     $scope.questionsou=true;
@@ -227,17 +228,27 @@
             };
 
             $scope.latlng = [null,null];
-
+            $scope.paysselect ="";
             $scope.getpos = function(event) {
                 $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
                 $scope.resultlatitude = event.latLng.lat();
                 $scope.resultlongitude = event.latLng.lng();
 
+                var getgooglemap = $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+event.latLng.lat()+','+event.latLng.lng()+'&language=en');
 
-                $scope.latitudetrue = $scope.movie.latitude;
-                $scope.longitudetrue = $scope.movie.longitude;
+                getgooglemap.success(function(data) {
+                    if(data.results[0]) {
+                        for(var i = 0; i < data.results[0].address_components.length; i++) {
+                            if(data.results[0].address_components[i].types[0] == "country") {
+                                $scope.paysselect =data.results[0].address_components[i].long_name;
+                            }
+                        }
+                    }
+                });
 
-                if(($scope.latitudetrue>$scope.resultlatitude-20) && ($scope.latitudetrue<$scope.resultlatitude+20) && ($scope.longitudetrue>$scope.resultlongitude-20) && ($scope.longitudetrue<$scope.resultlongitude+20) ){
+                $scope.pays = $scope.movie.pays;
+
+                if($scope.pays == $scope.paysselect){
                     $scope.resultoutrue = true;
                     $scope.score = $scope.score + 10;
                 }
