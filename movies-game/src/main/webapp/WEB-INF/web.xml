@@ -17,12 +17,20 @@
     <servlet-class>fr.nantes.web.quizz.servlets.Nbmovies</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>Nbmoviesdatastore</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.Nbmoviesdatastore</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>Nbdirectors</servlet-name>
     <servlet-class>fr.nantes.web.quizz.servlets.Nbdirectors</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Adddirectors</servlet-name>
     <servlet-class>fr.nantes.web.quizz.servlets.Adddirectors</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Addmovies</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.Addmovies</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>Addadmin</servlet-name>
@@ -49,12 +57,20 @@
     <url-pattern>/nbmovies</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>Nbmoviesdatastore</servlet-name>
+    <url-pattern>/nbmoviesdatastore</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Nbdirectors</servlet-name>
     <url-pattern>/nbdirectors</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Adddirectors</servlet-name>
     <url-pattern>/adddirectors</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Addmovies</servlet-name>
+    <url-pattern>/addmovies</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Addadmin</servlet-name>

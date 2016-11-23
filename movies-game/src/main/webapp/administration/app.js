@@ -4,6 +4,11 @@
 
     app.controller('madonnee_dynamique', ['$scope','$window', '$http', '$interval',
         function($scope, $window,$http,$interval) {
+            $scope.ajout_movies_attente = false;
+            $scope.ajout_movies = false;
+            $scope.ajout_movies_full = false;
+            $scope.ajout_movies_erreur = false;
+
             $scope.ajout_directors_attente=false;
             $scope.ajout_directors=false;
             $scope.ajout_directors_erreur=false;
@@ -11,6 +16,10 @@
             $scope.ajout_admin_attente=false;
             $scope.ajout_admin=false;
             $scope.ajout_admin_erreur=false;
+
+            $scope.nb_moviesdatastore_disponible_attente=false;
+            $scope.nb_moviesdatastore_disponible=false;
+            $scope.nb_moviesdatastore_disponible_erreur=false;
 
             $scope.nb_directors_disponible_attente=false;
             $scope.nb_directors_disponible=false;
@@ -24,13 +33,46 @@
             $scope.gereration=false;
             $scope.gereration_erreur=false;
 
+            $scope.nbmoviesadd=-1;
             $scope.nbdirectors=-1;
+            $scope.nbmoviesdispo = -1;
             $scope.nbdirectordispo=-1;
             $scope.nbmovies=-1;
             $scope.generationjson="";
             $scope.directorsadd=-1;
+            $scope.moviesadd=-1;
             $scope.idadmin = "";
             $scope.adminadd ="";
+
+            $scope.function_ajoutmovies =function() {
+                $scope.ajout_movies_attente=true;
+                var promise = $http.get('/addmovies', {
+                    params: { nbmoviesadd: $scope.nbmoviesadd}
+                });
+                promise.success(function(data) {
+                    if(data["0"]["count"]==1){
+                        $scope.ajout_movies_attente = false;
+                        $scope.ajout_movies = true;
+                        $scope.ajout_movies_full = false;
+                        $scope.ajout_movies_erreur = false;
+                    }else if(data["0"]["count"]==2) {
+                        $scope.ajout_movies_attente = false;
+                        $scope.ajout_movies = false;
+                        $scope.ajout_movies_full = true;
+                        $scope.ajout_movies_erreur = false;
+                    }else{
+                        $scope.ajout_movies_attente = false;
+                        $scope.ajout_movies = false;
+                        $scope.ajout_movies_full = false;
+                        $scope.ajout_movies_erreur = true;
+                    }
+                }).error(function (data, status){
+                    $scope.ajout_movies_attente = false;
+                    $scope.ajout_movies = false;
+                    $scope.ajout_movies_full = false;
+                    $scope.ajout_movies_erreur = true;
+                });
+            }
 
             $scope.function_ajoutdirectors =function() {
                 $scope.ajout_directors_attente=true;
@@ -82,6 +124,22 @@
                 }
             }
 
+            $scope.function_nbmoviesdatastore =function() {
+                $scope.nb_moviesdatastore_disponible_attente=true;
+                var promise = $http.get('/nbmoviesdatastore');
+
+                promise.success(function(data) {
+                    $scope.nbmoviesdispo = data["0"]["count"];
+                    $scope.nb_moviesdatastore_disponible_attente=false;
+                    $scope.nb_moviesdatastore_disponible=true;
+                    $scope.nb_moviesdatastore_disponible_erreur=false;
+                }).error(function (data, status){
+                    $scope.nb_moviesdatastore_disponible_attente=false;
+                    $scope.nb_moviesdatastore_disponible=false;
+                    $scope.nb_moviesdatastore_disponible_erreur=true;
+                });
+            }
+
             $scope.function_nbdirectors =function() {
                 $scope.nb_directors_disponible_attente=true;
                 var promise = $http.get('/nbdirectors');
@@ -128,6 +186,11 @@
                 });
             }
             $scope.clear =function() {
+                $scope.ajout_movies_attente = false;
+                $scope.ajout_movies = false;
+                $scope.ajout_movies_full = false;
+                $scope.ajout_movies_erreur = false;
+
                 $scope.ajout_directors_attente=false;
                 $scope.ajout_directors=false;
                 $scope.ajout_directors_erreur=false;
@@ -135,6 +198,10 @@
                 $scope.ajout_admin_attente=false;
                 $scope.ajout_admin=false;
                 $scope.ajout_admin_erreur=false;
+
+                $scope.nb_moviesdatastore_disponible_attente=false;
+                $scope.nb_moviesdatastore_disponible=false;
+                $scope.nb_moviesdatastore_disponible_erreur=false;
 
                 $scope.nb_directors_disponible_attente=false;
                 $scope.nb_directors_disponible=false;
@@ -147,12 +214,15 @@
                 $scope.gereration_attente=false;
                 $scope.gereration=false;
                 $scope.gereration_erreur=false;
+
+                $scope.nbmoviesadd=-1;
                 $scope.nbdirectors=-1;
+                $scope.nbmoviesdispo = -1;
                 $scope.nbdirectordispo=-1;
                 $scope.nbmovies=-1;
                 $scope.generationjson="";
                 $scope.directorsadd=-1;
-                $scope.idadmin ="";
+                $scope.idadmin = "";
                 $scope.adminadd ="";
 
             }

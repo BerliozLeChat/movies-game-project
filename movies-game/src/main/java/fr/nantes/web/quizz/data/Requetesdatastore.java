@@ -83,4 +83,59 @@ public class Requetesdatastore {
         }
         return nb;
     }
+
+    public static int getcountmovies(){
+        int nb = 0;
+        try{
+            DatastoreService datastore;
+            datastore = DatastoreServiceFactory.getDatastoreService();
+            Key cle_count_directors = KeyFactory.createKey("count_movies",1);
+            Entity count_trouve = datastore.get(cle_count_directors);
+            nb = ((Long) count_trouve.getProperty("valeur")).intValue();
+        }catch (Exception e){
+        }
+        return nb;
+    }
+    //return 1 si tout c'est bien passé
+    //return 2 si tout c'est bien passé et que le datastore possède tout les films que dbpedia possède
+    //return 100 si une erreur
+
+    public static int addmovies(int limit,int nbmoviedeb, HttpServletResponse resp) {
+     try {
+         ArrayList<Film> liste = Sparql.getMovies(limit, nbmoviedeb);
+         DatastoreService datastore;
+         Entity e;
+         int i = 0;
+         while (i < limit && i<liste.size()) {
+                e = new Entity("movies", i + nbmoviedeb + 1);
+                e.setProperty("nom", liste.get(i).getNom());
+                e.setProperty("longitude", liste.get(i).getLongitude());
+                e.setProperty("latitude", liste.get(i).getLatitude());
+                e.setProperty("realisateur", liste.get(i).getRealisateur());
+                e.setProperty("année", liste.get(i).getAnnée());
+                e.setProperty("id_wiki", liste.get(i).getId_wiki());
+                e.setProperty("id_wiki_realisateur", liste.get(i).getId_wiki_realisateur());
+
+                datastore = DatastoreServiceFactory.getDatastoreService();
+                datastore.put(e);
+                ++i;
+         }
+         e = new Entity("count_movies", 1);
+         e.setProperty("valeur", nbmoviedeb + i);
+         datastore = DatastoreServiceFactory.getDatastoreService();
+         datastore.put(e);
+
+         if (nbmoviedeb + limit == nbmoviedeb + i)
+             return (1);
+         else if (nbmoviedeb + limit > nbmoviedeb + i)
+             return (2);
+         else
+             return (3);
+     }catch (Exception e){
+         try {
+             resp.getWriter().println("UNE ERREUR S'EST PRODUIT !!!!! "+e.toString());
+         }catch (Exception ex){}
+     }
+        return (3);
+    }
 }

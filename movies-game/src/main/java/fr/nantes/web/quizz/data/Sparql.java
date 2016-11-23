@@ -26,21 +26,24 @@ public class Sparql {
                 "PREFIX dbp: <http://dbpedia.org/property/>\n" +
                 "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\n" +
                 "\n" +
-                "Select (count (*) as ?nb_movies) where\n" +
+                "Select (count (?id_wiki) as ?nb_movies) where{\n" +
+                "Select ?id_wiki where\n" +
                 "{\n" +
-                "        ?x rdf:type dbo:Film.\n" +
-                "        ?x dbp:name ?name.\n" +
-                "        FILTER (LANG(?name)='en').\n" +
-                "        ?x dbp:released ?date.\n" +
-                "        FILTER(datatype(?date)=xsd:date)\n" +
-                "        ?x dbp:country ?country.\n" +
-                "        ?x dbo:director ?director.\n" +
-                "        ?director dbp:name ?name_director.\n" +
-                "        FILTER (?date > '1990-01-01'^^xsd:dateTime).\n" +
-                "        ?x dbo:wikiPageID ?id_wiki.\n" +
-                "        ?country geo:lat ?lat.\n" +
-                "        ?country geo:long ?longi.\n" +
-                "        ?director dbo:wikiPageID ?id_wiki_director.\n" +
+                "?x rdf:type dbo:Film.\n" +
+                "?x dbp:name ?name.\n" +
+                "FILTER (LANG(?name)='en').\n" +
+                "?x dbp:released ?date.\n" +
+                "FILTER(datatype(?date)=xsd:date)\n" +
+                "?x dbp:country ?country.\n" +
+                "?x dbo:director ?director.\n" +
+                "?director dbp:name ?name_director.\n" +
+                "FILTER (?date > '1990-01-01'^^xsd:dateTime).\n" +
+                "?x dbo:wikiPageID ?id_wiki.\n" +
+                "?country geo:lat ?lat.\n" +
+                "?country geo:long ?longi.\n" +
+                "?director dbo:wikiPageID ?id_wiki_director.\n" +
+                "}\n" +
+                "\n" +
                 "}");
         QueryExecution exec = QueryExecutionFactory.sparqlService("http://dbpedia.org/sparql", qs.asQuery());
 
@@ -88,6 +91,7 @@ public class Sparql {
                 "        ?country geo:long ?longi.\n" +
                 "        ?director dbo:wikiPageID ?id_wiki_director.\n" +
                 "}" +
+                "group by (?id_wiki)\n" +
                 "limit 1\n" +
                 "offset " + offset);
 
@@ -172,6 +176,78 @@ public class Sparql {
                 ++count;
                 liste.add(new Director(name_director, wiki_director));
             }
+        }
+        return liste;
+    }
+
+    public static ArrayList<Film> getMovies(int limit,int deb) {
+        ArrayList<Film> liste = new ArrayList<Film>();
+        ParameterizedSparqlString qs = new ParameterizedSparqlString("" +
+                "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
+                "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+                "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n" +
+                "PREFIX : <http://dbpedia.org/resource/>\n" +
+                "PREFIX dbpedia2: <http://dbpedia.org/property/>\n" +
+                "PREFIX dbpedia: <http://dbpedia.org/>\n" +
+                "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n" +
+                "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+                "PREFIX dbp: <http://dbpedia.org/property/>\n" +
+                "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\n" +
+                "\n" +
+                "Select ?name ?date ?name_director ?id_wiki ?id_wiki_director ?lat ?longi where\n" +
+                "{\n" +
+                "        ?x rdf:type dbo:Film.\n" +
+                "        ?x dbp:name ?name.\n" +
+                "        FILTER (LANG(?name)='en').\n" +
+                "        ?x dbp:released ?date.\n" +
+                "        FILTER(datatype(?date)=xsd:date)\n" +
+                "        ?x dbp:country ?country.\n" +
+                "        ?x dbo:director ?director.\n" +
+                "        ?director dbp:name ?name_director.\n" +
+                "        FILTER (?date > '1990-01-01'^^xsd:dateTime).\n" +
+                "        ?x dbo:wikiPageID ?id_wiki.\n" +
+                "        ?country geo:lat ?lat.\n" +
+                "        ?country geo:long ?longi.\n" +
+                "        ?director dbo:wikiPageID ?id_wiki_director.\n" +
+                "}" +
+                "\n" +
+                "limit "+limit+"\n" +
+                "offset " + deb);
+
+        QueryExecution exec = QueryExecutionFactory.sparqlService( "http://dbpedia.org/sparql", qs.asQuery() );
+        // Normally you'd just do results = exec.execSelect(), but I want to
+        // use this ResultSet twice, so I'm making a copy of it.
+        ResultSet results = ResultSetFactory.copyResults( exec.execSelect() );
+        ArrayList list_for_group_by = new ArrayList();
+        int annee;
+        String name_movie, name_director, lat, longi, id_wiki, id_wiki_director;
+        while ( results.hasNext() ) {
+            QuerySolution row = (QuerySolution) results.next();
+
+            annee = Integer.parseInt(row.get("?date").toString().substring(0, 4));
+
+            name_movie = row.get("?name").toString();
+            name_movie = name_movie.replace("@en", "");
+
+            name_director = row.get("?name_director").toString();
+            name_director = name_director.replace("@en", "");
+
+
+            lat = row.get("?lat").toString();
+            lat = lat.replace("^^http://www.w3.org/2001/XMLSchema#float", "");
+
+            longi = row.get("?longi").toString();
+            longi = longi.replace("^^http://www.w3.org/2001/XMLSchema#float", "");
+
+            id_wiki = row.get("?id_wiki").toString();
+            id_wiki = id_wiki.replace("^^http://www.w3.org/2001/XMLSchema#integer", "");
+
+            id_wiki_director = row.get("?id_wiki_director").toString();
+            id_wiki_director = id_wiki_director.replace("^^http://www.w3.org/2001/XMLSchema#integer", "");
+            liste.add( new Film(name_movie, longi, lat, name_director, annee, id_wiki, id_wiki_director));
         }
         return liste;
     }

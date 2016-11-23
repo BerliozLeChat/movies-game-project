@@ -65,8 +65,13 @@
 <div id="administration"  ng-controller="madonnee_dynamique as mydonnee_dynamique">
     <h1>Admin</h1>
     <div class="commandes">
+        <form name="reviewForm_dynamique" ng-submit="function_ajoutmovies()">
+            <label>Nombre de movies à ajouter dans le datastore (max 500 à la fois): <input type="number" ng-model="nbmoviesadd"></label><br>
+            <p>{{nbmoviesadd}}</p>
+            <input type="submit" value="Update datastore des movies" />
+        </form>
         <form name="reviewForm_dynamique" ng-submit="function_ajoutdirectors()">
-            <label>Nombre de directors à mettre en tout dans le datastore : <input type="number" name="cbox1" ng-model="nbdirectors"></label><br>
+            <label>Nombre de directors à mettre en tout dans le datastore : <input type="number" ng-model="nbdirectors"></label><br>
             <p>{{nbdirectors}}</p>
             <input type="submit" value="Update datastore des directors" />
         </form>
@@ -74,6 +79,9 @@
             <label>id du user à ajouter en tant qu'admin : <input type="text" name="cbox1" ng-model="idadmin"></label><br>
             <p>{{idadmin}}</p>
             <input type="submit" value="Ajouter en Admin !" />
+        </form>
+        <form name="reviewForm_dynamique" ng-submit="function_nbmoviesdatastore()">
+            <input type="submit" value="Compter le nombre de movies disponible dans le Datastore" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbdirectors()">
             <input type="submit" value="Compter le nombre de directors disponible" />
@@ -88,6 +96,19 @@
     </div>
 
     <div class="resultats">
+        <div ng-show="ajout_movies_attente" class="wait">
+            <p>L'ajout de {{nbmoviesadd}} movies est en cours ... ...</p>
+        </div>
+        <div ng-show="ajout_movies" class="functionvalid">
+            <p>Les {{nbmoviesadd}} movies ont bien été ajoutés.</p>
+        </div>
+        <div ng-show="ajout_movies_full" class="functionvalid">
+            <p>Tous les films de DBpedia ont été ajoutés (Veuillez verifier si le nombre de movies dans le datastore est égal à celui de DBpedia).</p>
+        </div>
+        <div ng-show="ajout_movies_erreur" class="erreur">
+            <p>Une Erreur s'est produite lors de l'ajout de {{nbmoviesadd}} movies !!!!!</p>
+            <sub>(Attention il est possible que vous essayez d'ajouter trop de movies ou que le serveur soit saturé, veuillez vérifier que l'ajout a réelement échoué puis relancez la requète jusqu'au succes ;) ...)</sub>
+        </div>
         <div ng-show="ajout_directors_attente" class="wait">
             <p>L'ajout de {{nbdirectors}} directors est en cours ... ...</p>
         </div>
@@ -106,6 +127,15 @@
         </div>
         <div ng-show="ajout_admin_erreur" class="erreur">
             <p>Une Erreur s'est produite lors de l'ajout de {{idadmin}} en admin !!!!!</p>
+        </div>
+        <div ng-show="nb_moviesdatastore_disponible_attente" class="wait">
+            <p>La demande du nombre de movies dans le datastore est en cours ... ...</p>
+        </div>
+        <div ng-show="nb_moviesdatastore_disponible" class="functionvalid">
+            <p>Le nombre de movies disponible dans le datastore est : {{nbmoviesdispo}}</p>
+        </div>
+        <div ng-show="nb_moviesdatastore_disponible_erreur" class="erreur">
+            <p>Une Erreur s'est produite lors de la demande du nombre de movies dans le datastore !!!!!</p>
         </div>
         <div ng-show="nb_directors_disponible_attente" class="wait">
             <p>La demande du nombre de directors est en cours ... ...</p>
