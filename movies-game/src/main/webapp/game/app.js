@@ -186,6 +186,8 @@
                     $scope.questionsquand=false;
                     $scope.questionsou=false;
                     $scope.questionsresult=false;
+                    $scope.repondu=false;
+                    $scope.reponse_user="";
                 }else{
                     $scope.endquestionnaire =false;
                     $scope.endgame =false;
