@@ -158,16 +158,6 @@
             <button id="nextfilm" value="nextfilm" name="nextfilm" ng-click ="suivant()" class="btn" ng-show="!endquestionnaire">Film suivant</button> <br/>
             <button id="end" value="end" name="end" ng-click ="goendgame()" class="btn" ng-show="endquestionnaire">Fin</button> <br/>
           </div>
-            <div ng-show="!endquestionnaire">
-              <form name="reviewForm_dynamique" ng-submit="suivant()">
-				<button class="btn input" type="submit">Film suivant</button>
-              </form>
-            </div>
-            <div ng-show="endquestionnaire">
-              <form name="reviewForm_dynamique" ng-submit="goendgame()">
-				<button class="btn input" type="submit">Fin</button>
-              </form>
-            </div>
           </div>
           <div ng-show="endgame">
             <p>Merci d'avoir joué à notre jeu :)</p>
