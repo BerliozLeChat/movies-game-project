@@ -170,7 +170,7 @@
       </div>
     <div class="map">
       <p ng-show="!ready && mapshow" >Initialisation de la map Google ... ... </p>
-      <ng-map ng-show="mapshow" id="map" zoom="1" on-click="getpos($event)">
+      <ng-map ng-show="mapshow" id="map" zoom="2" on-click="getpos($event)">
       </ng-map>
     </div>
   </div>
