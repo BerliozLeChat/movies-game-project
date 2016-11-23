@@ -9,7 +9,7 @@ public class Films {
     List<Film> liste;
 
     public Films(){
-        liste = new ArrayList<Film>(10);
+        /*liste = new ArrayList<Film>(10);
         int nombre_films = Sparql.countMovies();
         Random r = new Random();
         int valeur_random;
@@ -24,7 +24,7 @@ public class Films {
                 liste.add(film_tmp);
                 liste_id_wiki.add(id_wiki);
             }
-        }
+        }*/
     }
 
     public void affichage_liste (HttpServletResponse response){
@@ -32,8 +32,7 @@ public class Films {
             try {
                 response.getWriter().println("Num Film : " + i);
                 response.getWriter().println("Nom du film : " + liste.get(i).getNom());
-                response.getWriter().println("Longitude du film : " + liste.get(i).getLongitude());
-                response.getWriter().println("Latitude du film : " + liste.get(i).getLatitude());
+                response.getWriter().println("pays du film : " + liste.get(i).getPays());
                 response.getWriter().println("Realisateur du film :" + liste.get(i).getRealisateur());
                 response.getWriter().println("Année du film : " + liste.get(i).getAnnée());
                 response.getWriter().println("id_wiki du film : " + liste.get(i).getId_wiki());

@@ -3,25 +3,22 @@ package fr.nantes.web.quizz.data;
 public class Film {
 
     private String nom;
-    private String longitude;
-    private String latitude;
+    private String pays;
     private String realisateur;
     private int année;
     private String id_wiki;
     private String id_wiki_realisateur;
 
 
-    public Film(String nom, String longitude, String latitude, String realisateur, int année, String id_wiki, String id_wiki_realisateur) {
+    public Film(String nom, String pays, String realisateur, int année, String id_wiki, String id_wiki_realisateur) {
 
         this.nom = nom;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.pays = pays;
         this.realisateur = realisateur;
         this.année = année;
         this.id_wiki=id_wiki;
         this.id_wiki_realisateur=id_wiki_realisateur;
     }
-
 
     public String getNom() {
         return nom;
@@ -29,6 +26,14 @@ public class Film {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
     }
 
     public String getRealisateur() {
@@ -61,21 +66,5 @@ public class Film {
 
     public void setId_wiki_realisateur(String id_wiki_realisateur) {
         this.id_wiki_realisateur = id_wiki_realisateur;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
     }
 }

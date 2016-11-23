@@ -3,7 +3,10 @@ package fr.nantes.web.quizz.data;
 import com.google.appengine.api.datastore.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Sullivan on 08/11/2016.
@@ -91,7 +94,12 @@ public class Requetesdatastore {
             datastore = DatastoreServiceFactory.getDatastoreService();
             Key cle_count_directors = KeyFactory.createKey("count_movies",1);
             Entity count_trouve = datastore.get(cle_count_directors);
-            nb = ((Long) count_trouve.getProperty("valeur")).intValue();
+            if(count_trouve!=null) {
+                nb = ((Long) count_trouve.getProperty("valeur")).intValue();
+            }else{
+                nb=0;
+            }
+
         }catch (Exception e){
         }
         return nb;
@@ -100,34 +108,36 @@ public class Requetesdatastore {
     //return 2 si tout c'est bien passé et que le datastore possède tout les films que dbpedia possède
     //return 100 si une erreur
 
-    public static int addmovies(int limit,int nbmoviedeb, HttpServletResponse resp) {
+    public static int addmovies(int limit, HttpServletResponse resp) {
      try {
-         ArrayList<Film> liste = Sparql.getMovies(limit, nbmoviedeb);
+         int count_movies = getcountmovies();
+         ArrayList<Film> liste = Sparql.getMovies(limit,count_movies);
          DatastoreService datastore;
          Entity e;
          int i = 0;
-         while (i < limit && i<liste.size()) {
-                e = new Entity("movies", i + nbmoviedeb + 1);
-                e.setProperty("nom", liste.get(i).getNom());
-                e.setProperty("longitude", liste.get(i).getLongitude());
-                e.setProperty("latitude", liste.get(i).getLatitude());
-                e.setProperty("realisateur", liste.get(i).getRealisateur());
-                e.setProperty("année", liste.get(i).getAnnée());
-                e.setProperty("id_wiki", liste.get(i).getId_wiki());
-                e.setProperty("id_wiki_realisateur", liste.get(i).getId_wiki_realisateur());
+         datastore = DatastoreServiceFactory.getDatastoreService();
 
-                datastore = DatastoreServiceFactory.getDatastoreService();
-                datastore.put(e);
-                ++i;
+         while (i<liste.size()) {
+            e = new Entity("movies", i + count_movies +1);
+            e.setProperty("nom", liste.get(i).getNom());
+            e.setProperty("pays", liste.get(i).getPays());
+            e.setProperty("realisateur", liste.get(i).getRealisateur());
+            e.setProperty("année", liste.get(i).getAnnée());
+            e.setProperty("id_wiki", liste.get(i).getId_wiki());
+            e.setProperty("id_wiki_realisateur", liste.get(i).getId_wiki_realisateur());
+            datastore.put(e);
+             ++i;
          }
-         e = new Entity("count_movies", 1);
-         e.setProperty("valeur", nbmoviedeb + i);
+
+         e = new Entity("count_movies",1 );
+         e.setProperty("valeur", i + count_movies);
          datastore = DatastoreServiceFactory.getDatastoreService();
          datastore.put(e);
 
-         if (nbmoviedeb + limit == nbmoviedeb + i)
+
+         if (limit == i)
              return (1);
-         else if (nbmoviedeb + limit > nbmoviedeb + i)
+         else if (limit > i)
              return (2);
          else
              return (3);

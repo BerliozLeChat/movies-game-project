@@ -99,8 +99,7 @@ public class Generateurquestionsfilm {
         hmap.put("quand_r2",quand_r2);
         hmap.put("quand_r3",quand_r3);
         hmap.put("quand_vrai",quand_vrai);
-        hmap.put("longitude",film.getLongitude());
-        hmap.put("latitude",film.getLatitude());
+        hmap.put("pays",film.getPays());
 
         return hmap;
     }
@@ -116,8 +115,7 @@ public class Generateurquestionsfilm {
             response.getWriter().println("quand_r2 : "+hmap.get("quand_r2"));
             response.getWriter().println("quand_r3 : "+hmap.get("quand_r3"));
             response.getWriter().println("quand_vrai : "+hmap.get("quand_vrai"));
-            response.getWriter().println("longitude : "+hmap.get("longitude"));
-            response.getWriter().println("latitude : "+hmap.get("latitude"));
+            response.getWriter().println("pays : "+hmap.get("pays"));
         } catch(Exception e){}
     }
 }

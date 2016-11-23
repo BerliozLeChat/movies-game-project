@@ -36,7 +36,7 @@ public class Addmovies extends HttpServlet {
         if(nbmoviesadd>0&&nbmoviesadd<501) {
             int nbmoviedeb = Requetesdatastore.getcountmovies();
             if(nbmoviedeb>-1) {
-                int returnadd = Requetesdatastore.addmovies(nbmoviesadd, nbmoviedeb,response);
+                int returnadd = Requetesdatastore.addmovies(nbmoviesadd,response);
                 if (1 == returnadd) {
                     map.put("count", 1);
                     result.add(map);
