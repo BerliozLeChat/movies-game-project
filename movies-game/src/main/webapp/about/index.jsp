@@ -25,8 +25,8 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
-    <link href="style.css" rel="stylesheet" />
     <link href="/styleheader.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <meta name="description" content="About Movies Game">
     <meta name="keywords" content="HTML,CSS,JavaScript,Angular,GoogleAppEngine">
     <meta name="author" content="Le Luet Camille, Hallereau François, Vallée Sebastien & Pineau Sullivan">
@@ -39,12 +39,12 @@
   </div>
   <div id="headercenter">
         <% if(connexion){ %>
-        <div class="link_right"><a id="mon compte" href="https://moviesgameoff.appspot.com/account/">Mon Compte</a></div>
+        <div class="link_right"><a id="mon compte" href="/account/">Mon Compte</a></div>
         <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
         <% }else{ %>
         <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
         <% } %>
-    <div class="link_right"><a id="about" href="https://moviesgameoff.appspot.com/about/">A propos</a></div>
+    <div class="link_right"><a id="about" href="/about/">A propos</a></div>
   </div>
   <div id="headerright">  
 	<a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
@@ -59,33 +59,25 @@
     <div class="barre_about">
     </div>
     <div class="person">
-		<div class="photoContainer">
-			<img id="photo" src="camille.png" alt="photo_camille">
-		</div>
+		<div class="photoContainer" style="background-image: url('camille.png');"></div>
         <p class="description">Camille Le Luët</p>
         <p class="description">Master Alma 1 Nantes 2016-2017</p>
         <a href="mailto:camille.leluet@etu.univ-nantes.fr">Contacter Camille</a>
     </div>
     <div class="person">
-		<div class="photoContainer">
-			<img id="photo" src="francois.png" alt="photo_francois">
-		</div>
+		<div class="photoContainer" style="background-image: url('francois.png');"></div>
         <p class="description">François Hallereau</p>
         <p class="description">Master Alma 1 Nantes 2016-2017</p>
         <a href="mailto:francois.hallereau@etu.univ-nantes.fr">Contacter François</a>
     </div>
     <div class="person">
-		<div class="photoContainer">
-			<img id="photo" src="sebastien.png" alt="photo_sebastien">
-		</div>
+		<div class="photoContainer" style="background-image: url('sebastien.png');"></div>
         <p class="description">Sebastien Vallée</p>
         <p class="description">Master Alma 1 Nantes 2016-2017</p>
         <a href="mailto:sebastien.vallee@etu.univ-nantes.fr">Contacter Sebastien</a>
     </div>
     <div class="person">
-		<div class="photoContainer">
-			<img id="photo" src="sullivan.png" alt="photo_sullivan">
-		</div>
+		<div class="photoContainer" style="background-image: url('sullivan.png');"></div>
         <p class="description">Sullivan Pineau</p>
         <p class="description">Master Alma 1 Nantes 2016-2017</p>
         <a href="mailto:sullivan.pineau@etu.univ-nantes.fr">Contacter Sullivan</a>
