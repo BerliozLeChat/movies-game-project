@@ -223,8 +223,14 @@
                             $scope.goquand();
                         else if($scope.questionsquand)
                             $scope.goou();
-                        else if($scope.questionsou)
-                            $scope.goresult();
+                        else if($scope.questionsou) {
+                            $scope.mapshow = false;
+                            $scope.questionsresult =true;
+                            $scope.pays = $scope.movie.pays;
+                            if(!$scope.repondu)
+                                $scope.resultoutrue = false;
+                            $scope.repondu = true;
+                        }
                     }
                 }, 100);
             };
@@ -235,10 +241,12 @@
                 $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
                 $scope.resultlatitude = event.latLng.lat();
                 $scope.resultlongitude = event.latLng.lng();
+                $scope.pays = $scope.movie.pays;
 
                 var getgooglemap = $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+event.latLng.lat()+','+event.latLng.lng()+'&language=en');
 
                 getgooglemap.success(function(data) {
+                    $scope.mapshow = false;
                     if(data.results[0]) {
                         for(var i = 0; i < data.results[0].address_components.length; i++) {
                             if(data.results[0].address_components[i].types[0] == "country") {
@@ -246,15 +254,13 @@
                             }
                         }
                     }
-                    $scope.pays = $scope.movie.pays;
 
-                    if($scope.pays.match(".*"+$scope.paysselect+".*")){
+                    if( $scope.pays.match(".*"+$scope.paysselect+".*") && ($scope.paysselect!="") ){
                         $scope.resultoutrue = true;
                         $scope.score = $scope.score + 10;
                     }
                     else
                         $scope.resultoutrue = false;
-
                     $scope.repondu = true;
                     $scope.questionsresult=true;
                     if($scope.i<9){

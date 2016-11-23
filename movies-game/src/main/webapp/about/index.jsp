@@ -35,7 +35,7 @@
 <body>
 <div id="header">
   <div id="headerleft">
-    <a href="https://moviesgameoff.appspot.com/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
+    <a href="/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
   </div>
   <div id="headercenter">
         <% if(connexion){ %>

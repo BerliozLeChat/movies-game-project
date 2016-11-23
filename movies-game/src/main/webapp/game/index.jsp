@@ -51,7 +51,7 @@
 <body>
 <div id="header">
   <div id="headerleft">
-    <a href="https://moviesgameoff.appspot.com/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
+    <a href="/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
   </div>
   <div id="headercenter">
         <% if(connexion){ %>
@@ -148,11 +148,12 @@
             <h1 class="movieTitle">{{movie.nom}}</h1>
             <h1>Ou a été réalisé ce film ?</h1>
 
-            <p>Veuillez cliquer l'endroit sur la map en dessous !</p>
-            <p>Pays sélectionné : {{paysselect}}</p>
+            <p ng_show="!repondu">Veuillez cliquer le pays sur la map en dessous !</p>
+            <p ng_show="repondu&&(paysselect!='')">Vous avez selectionné "{{paysselect}}".</p>
+            <p ng_show="repondu&&(paysselect==='')">Vous n'avez pas selectionné de pays.</p>
 
             <div ng-show="repondu && resultoutrue" class="alert alert-success" role="alert">Bonne réponse.</div>
-            <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">Mauvaise réponse, le pays est : {{pays}}.</div>
+            <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">Mauvaise réponse, le pays était "{{pays}}".</div>
           </div>
           <div ng-show="questionsresult">
             <button id="nextfilm" value="nextfilm" name="nextfilm" ng-click ="suivant()" class="btn" ng-show="!endquestionnaire">Film suivant</button> <br/>
@@ -167,12 +168,12 @@
             </form>
           </div>
         </div>
+        <div class="map">
+          <p ng-show="!ready && mapshow" >Initialisation de la map Google ... ... </p>
+            <ng-map ng-show="mapshow" id="map" zoom="2" on-click="getpos($event)">
+          </ng-map>
+        </div>
       </div>
-    <div class="map">
-      <p ng-show="!ready && mapshow" >Initialisation de la map Google ... ... </p>
-      <ng-map ng-show="mapshow" id="map" zoom="2" on-click="getpos($event)">
-      </ng-map>
-    </div>
   </div>
 </div>
 
