@@ -87,7 +87,7 @@
             <input type="submit" value="Compter le nombre de directors disponible" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_nbmovies()">
-            <input type="submit" value="Compter le nombre de movies disponible" />
+            <input type="submit" value="Compter le nombre de movies disponible via la requete Sparql" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_generation()">
             <input type="submit" value="Tester la génération questions JSON" />
