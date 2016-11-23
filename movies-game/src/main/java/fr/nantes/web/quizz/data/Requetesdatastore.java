@@ -27,6 +27,30 @@ public class Requetesdatastore {
         return new Director(name_director,wiki_director);
     }
 
+    public static Film getfilm(int id) {
+        String nom = "";
+        String pays = "";
+        String realisateur = "";
+        String annee = "1900";
+        String id_wiki="";
+        String id_wiki_realisateur="";
+
+        DatastoreService datastore;
+        datastore = DatastoreServiceFactory.getDatastoreService();
+        Key cle_movie = KeyFactory.createKey("movies",id);
+        try{
+            Entity movie_trouve = datastore.get(cle_movie);
+            nom = (String) movie_trouve.getProperty("nom");
+            pays = (String) movie_trouve.getProperty("pays");
+            realisateur = (String) movie_trouve.getProperty("realisateur");
+            id_wiki= (String) movie_trouve.getProperty("id_wiki");
+            id_wiki_realisateur= (String) movie_trouve.getProperty("id_wiki_realisateur");
+            annee = (String) movie_trouve.getProperty("annee");
+        } catch (Exception e){}
+
+        return new Film(nom,pays,realisateur,annee, id_wiki,id_wiki_realisateur);
+    }
+
     public static boolean adddirectors(int limit) {
         ArrayList<Director> liste = Sparql.getDirectors(limit);
         int i =0;
@@ -122,7 +146,7 @@ public class Requetesdatastore {
             e.setProperty("nom", liste.get(i).getNom());
             e.setProperty("pays", liste.get(i).getPays());
             e.setProperty("realisateur", liste.get(i).getRealisateur());
-            e.setProperty("année", liste.get(i).getAnnée());
+            e.setProperty("annee", liste.get(i).getAnnee());
             e.setProperty("id_wiki", liste.get(i).getId_wiki());
             e.setProperty("id_wiki_realisateur", liste.get(i).getId_wiki_realisateur());
             datastore.put(e);

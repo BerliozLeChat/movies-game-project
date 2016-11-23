@@ -22,7 +22,7 @@ public class Generateurquestionsfilm {
         String quand_r1 = "" ;
         String quand_r2 = "" ;
         String quand_r3 = "" ;
-        String quand_vrai = String.valueOf(film.getAnnée());
+        String quand_vrai = film.getAnnee();
         try {
             int nb_director = 0;
             String productor_movie_false_1 = "";
@@ -61,7 +61,7 @@ public class Generateurquestionsfilm {
                 qui_r2 = productor_movie_false_2;
                 qui_r3 = qui_vrai;
             }
-            int date_film = film.getAnnée();
+            int date_film = Integer.parseInt(film.getAnnee());
             int date_false_1 =0;
             int date_false_2 =0;
             valeur_random = 1 + r.nextInt(3);

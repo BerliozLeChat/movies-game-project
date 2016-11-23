@@ -5,17 +5,17 @@ public class Film {
     private String nom;
     private String pays;
     private String realisateur;
-    private int année;
+    private String annee;
     private String id_wiki;
     private String id_wiki_realisateur;
 
 
-    public Film(String nom, String pays, String realisateur, int année, String id_wiki, String id_wiki_realisateur) {
+    public Film(String nom, String pays, String realisateur, String annee, String id_wiki, String id_wiki_realisateur) {
 
         this.nom = nom;
         this.pays = pays;
         this.realisateur = realisateur;
-        this.année = année;
+        this.annee = annee;
         this.id_wiki=id_wiki;
         this.id_wiki_realisateur=id_wiki_realisateur;
     }
@@ -44,12 +44,12 @@ public class Film {
         this.realisateur = realisateur;
     }
 
-    public int getAnnée() {
-        return année;
+    public String getAnnee() {
+        return annee;
     }
 
-    public void setAnnée(int année) {
-        this.année = année;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 
     public String getId_wiki() {

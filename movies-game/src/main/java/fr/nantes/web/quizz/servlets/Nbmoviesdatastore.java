@@ -1,5 +1,6 @@
 package fr.nantes.web.quizz.servlets;
 
+import fr.nantes.web.quizz.data.Films;
 import fr.nantes.web.quizz.data.Requetesdatastore;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,6 +28,7 @@ public class Nbmoviesdatastore  extends HttpServlet {
         result.add(map);
 
         response.setContentType("application/json;charset=UTF-8");
+
         try (PrintWriter out = response.getWriter()) {
 
             out.println(result);

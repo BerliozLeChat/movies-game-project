@@ -95,7 +95,7 @@ public class Sparql {
 
         QuerySolution row = results.next();
 
-        int annee = Integer.parseInt(row.get("?date").toString().substring(0, 4));
+        String annee = row.get("?date").toString().substring(0, 4);
 
         String name_movie = row.get("?name").toString();
         name_movie = name_movie.replace("@en", "");
@@ -211,12 +211,12 @@ public class Sparql {
         // use this ResultSet twice, so I'm making a copy of it.
         ResultSet results = ResultSetFactory.copyResults( exec.execSelect() );
         ArrayList list_for_group_by = new ArrayList();
-        int annee;
+        String annee;
         String name_movie, name_director, country, id_wiki, id_wiki_director;
         while ( results.hasNext() ) {
             QuerySolution row = (QuerySolution) results.next();
 
-            annee = Integer.parseInt(row.get("?date").toString().substring(0, 4));
+            annee = row.get("?date").toString().substring(0, 4);
 
             name_movie = row.get("?name").toString();
             name_movie = name_movie.replace("@en", "");
