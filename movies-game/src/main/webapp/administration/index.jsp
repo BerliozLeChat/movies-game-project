@@ -73,26 +73,26 @@
         <form name="reviewForm_dynamique" ng-submit="function_ajoutdirectors()">
             <label>Nombre de directors à mettre en tout dans le datastore : <input type="number" ng-model="nbdirectors"></label><br>
             <p>{{nbdirectors}}</p>
-            <button type="button">Update datastore des directors</button>
+            <input type="submit" value="Update datastore des directors" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_ajoutadmin()">
             <label>id du user à ajouter en tant qu'admin : <input type="text" name="cbox1" ng-model="idadmin"></label><br>
             <p>{{idadmin}}</p>
-            <button type="button">Ajouter en Admin !</button>
+            <input type="submit" value="Ajouter en Admin !" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbmoviesdatastore()">
             <input type="submit" value="Compter le nombre de movies disponible dans le Datastore" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbdirectors()">
-            <button type="button">Compter le nombre de directors disponible</button>
+            <input type="submit" value="Compter le nombre de directors disponible" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_nbmovies()">
-            <button type="button">Compter le nombre de movies disponible</button>
+            <input type="submit" value="Compter le nombre de movies disponible" />
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_generation()">
-            <button type="button">Tester la génération questions JSON</button>
+            <input type="submit" value="Tester la génération questions JSON" />
         </form>
-        <a href="https://moviesgameoff.appspot.com/_ah/api/explorer"><button type="button" value="Aller sur l'API" /></a>
+        <a href="https://moviesgameoff.appspot.com/_ah/api/explorer"><button type="button">Aller sur l'API</button></a>
     </div>
 
     <div class="resultats">
@@ -166,7 +166,7 @@
             <p>Une Erreur s'est produite lors de la génération des questions !!!!!</p>
         </div>
         <form name="reviewForm_dynamique" ng-submit="clear()">
-            <button type="button">Clear</button>
+            <input type="submit" value="Clear" />
         </form>
     </div>
 
