@@ -79,6 +79,8 @@
                         $scope.gotimer();
                     $scope.questionsqui=true;
                     $scope.questionnaires =true;
+                    $scope.repondu=false;
+                    $scope.reponse_user="";
                 }
             }
 
@@ -93,6 +95,8 @@
                     $scope.questionsqui=false;
                     $scope.questionsquand=true;
                     $scope.questionsou=false;
+                    $scope.repondu=false;
+                    $scope.reponse_user="";
                 }
             }
             $scope.goou =function() {
@@ -106,53 +110,33 @@
                     $scope.questionsquand=false;
                     $scope.questionsou=true;
                     $scope.mapshow = true;
+                    $scope.repondu=false;
+                    $scope.reponse_user="";
 
                 }
             }
-            $scope.goresult =function() {
-                if($scope.questionsou){
-                    $interval.cancel(stop);
-                    stop = undefined;
-                    $scope.timer = $scope.timerchoix;
+            $scope.goresult =function($result) {
+                if($scope.questionsqui){
+                    $scope.reponse_user=$result;
+                    $scope.repondu=true;
                     $scope.quitrue = $scope.movie.qui_vrai;
-                    $scope.quandtrue = $scope.movie.quand_vrai;
-                    $scope.latitudetrue = $scope.movie.latitude;
-                    $scope.longitudetrue = $scope.movie.longitude;
-                    if($scope.quitrue==$scope.resultqui)
+                    if($scope.quitrue==$result){
                         $scope.resultquitrue = true;
+                        $scope.score = $scope.score + 10;
+                    }
                     else
                         $scope.resultquitrue = false;
-
-                    if($scope.quandtrue==$scope.resultquand)
+                }
+                else if($scope.questionsquand){
+                    $scope.reponse_user=$result;
+                    $scope.repondu=true;
+                    $scope.quandtrue = $scope.movie.quand_vrai;
+                    if($scope.quandtrue==$result){
                         $scope.resultquandtrue = true;
+                        $scope.score = $scope.score + 10;
+                    }
                     else
                         $scope.resultquandtrue = false;
-
-                    if(($scope.latitudetrue>$scope.resultlatitude-20) && ($scope.latitudetrue<$scope.resultlatitude+20) && ($scope.longitudetrue>$scope.resultlongitude-20) && ($scope.longitudetrue<$scope.resultlongitude+20) )
-                        $scope.resultoutrue = true;
-                    else
-                        $scope.resultoutrue = false;
-
-                    if($scope.timerchoix==50)
-                        $scope.bonus=2;
-                    else if($scope.timerchoix==100)
-                        $scope.bonus=1.5;
-
-                    if($scope.resultquitrue&&$scope.resultquandtrue&&$scope.resultoutrue)
-                        $scope.score = $scope.score + (100*$scope.bonus);
-                    else if($scope.resultquitrue&&$scope.resultquandtrue||$scope.resultquandtrue&&$scope.resultoutrue||$scope.resultquitrue&&$scope.resultoutrue)
-                        $scope.score = $scope.score + (60*$scope.bonus);
-                    else if($scope.resultquitrue||$scope.resultquandtrue||$scope.resultoutrue)
-                        $scope.score = $scope.score + (25*$scope.bonus);
-                    $scope.mapshow = false;
-                    $scope.questionsou=false;
-
-                    $scope.questionsresult=true;
-                    if($scope.i<9){
-                        $scope.endquestionnaire =false;
-                    }else{
-                        $scope.endquestionnaire =true;
-                    }
                 }
             }
             $scope.score = 0;
@@ -175,6 +159,9 @@
             $scope.goendgame =function() {
                 if($scope.questionsresult){
                     $scope.questionsresult=false;
+                    $scope.endgame = true;
+                    $scope.mapshow = false;
+                    $scope.questionsou=false;
                     $scope.endgame = true;
                 }
             }
@@ -245,6 +232,26 @@
                 $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
                 $scope.resultlatitude = event.latLng.lat();
                 $scope.resultlongitude = event.latLng.lng();
+
+
+                $scope.latitudetrue = $scope.movie.latitude;
+                $scope.longitudetrue = $scope.movie.longitude;
+
+                if(($scope.latitudetrue>$scope.resultlatitude-20) && ($scope.latitudetrue<$scope.resultlatitude+20) && ($scope.longitudetrue>$scope.resultlongitude-20) && ($scope.longitudetrue<$scope.resultlongitude+20) ){
+                    $scope.resultoutrue = true;
+                    $scope.score = $scope.score + 10;
+                }
+                else
+                    $scope.resultoutrue = false;
+
+                $scope.repondu = true;
+                $scope.questionsresult=true;
+                if($scope.i<9){
+                    $scope.endquestionnaire =false;
+                }else{
+                    $scope.endquestionnaire =true;
+                }
+
             }
         }
 

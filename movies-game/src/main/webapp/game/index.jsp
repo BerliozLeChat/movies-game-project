@@ -95,66 +95,70 @@
           <div ng-show="questionsqui">
             <h1 class="movieTitle">{{movie.nom}}</h1>
             <h1>Qui a réalisé ce film ?</h1>
-            <form name="reviewForm_dynamique" ng-submit="goquand()">
-              <div id="choix">
-                <label><input type="radio" name="cbox1" ng-model="resultqui" value={{movie.qui_r1}}>{{movie.qui_r1}}</label><br>
-                <label><input type="radio" name="cbox1" ng-model="resultqui" value={{movie.qui_r2}}>{{movie.qui_r2}}</label><br>
-                <label><input type="radio" name="cbox1" ng-model="resultqui" value={{movie.qui_r3}}>{{movie.qui_r3}}</label><br>
-              </div>
-              <button class="btn input" id="valid1" type="submit" value="Valider">Valider</button>
-            </form>
+            <button id="qui1" ng-model="resultqui" value={{movie.qui_r1}} name={{movie.qui_r1}} ng-click ="goresult(movie.qui_r1)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quitrue!=movie.qui_r1 && repondu && reponse_user==movie.qui_r1,
+                        'btn-success' : quitrue==movie.qui_r1 && repondu
+                        }">{{movie.qui_r1}}
+            </button>
+
+            <button id="qui2" ng-model="resultqui" value={{movie.quir_2}} name={{movie.qui_r2}} ng-click ="goresult(movie.qui_r2)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quitrue!=movie.qui_r2 && repondu && reponse_user==movie.qui_r2,
+                        'btn-success' : quitrue==movie.qui_r2 && repondu
+                        }">{{movie.qui_r2}}
+            </button>
+
+            <button id="qui3" ng-model="resultqui" value={{movie.qui_r3}} name={{movie.qui_r3}} ng-click ="goresult(movie.qui_r3)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quitrue!=movie.qui_r3 && repondu && reponse_user==movie.qui_r3,
+                        'btn-success' : quitrue==movie.qui_r3 && repondu
+                        }">{{movie.qui_r3}}
+            </button><br/>
+
+            <button id="nextquand" value="nextquand" name="nextquand" ng-click ="goquand()" class="btn" ng-show="repondu">Suivant</button> <br/>
           </div>
           <div ng-show="questionsquand">
             <h1 class="movieTitle">{{movie.nom}}</h1>
             <h1>Quand a été réalisé ce film ?</h1>
-            <form name="reviewForm_dynamique" ng-submit="goou()">
-              <div id="choix">
-                <label><input type="radio" name="cbox1" ng-model="resultquand" value={{movie.quand_r1}}>{{movie.quand_r1}}</label><br>
-                <label><input type="radio" name="cbox1" ng-model="resultquand" value={{movie.quand_r2}}>{{movie.quand_r2}}</label><br>
-                <label><input type="radio" name="cbox1" ng-model="resultquand" value={{movie.quand_r3}}>{{movie.quand_r3}}</label><br>
-              </div>
-              <button class="btn input" id="valid2" type="submit" value="Valider">Valider</button>
-            </form>
+            <button id="quand1" ng-model="resultquand" value={{movie.quand_r1}} name={{movie.quand_r1}} ng-click ="goresult(movie.quand_r1)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quandtrue!=movie.quand_r1 && repondu && reponse_user==movie.quand_r1,
+                        'btn-success' : quandtrue==movie.quand_r1 && repondu
+                        }">{{movie.quand_r1}}
+            </button>
+
+            <button id="quand2" ng-model="resultquand" value={{movie.quand_r2}} name={{movie.quand_r2}} ng-click ="goresult(movie.quand_r2)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quandtrue!=movie.quand_r2 && repondu && reponse_user==movie.quand_r2,
+                        'btn-success' : quandtrue==movie.quand_r2 && repondu
+                        }">{{movie.quand_r2}}
+            </button>
+
+            <button id="quand3" ng-model="resultquand" value={{movie.quand_r3}} name={{movie.quand_r3}} ng-click ="goresult(movie.quand_r3)"
+                    ng-disabled="repondu"  class="btn btn-default btn-level ng-class:{
+                        'btn-danger' : quandtrue!=movie.quand_r3 && repondu && reponse_user==movie.quand_r3,
+                        'btn-success' : quandtrue==movie.quand_r3 && repondu
+                        }">{{movie.quand_r3}}
+            </button><br/>
+
+            <button id="nextou" value="nextou" name="nextou" ng-click ="goou()" class="btn" ng-show="repondu">Suivant</button> <br/>
           </div>
           <div ng-show="questionsou">
             <h1 class="movieTitle">{{movie.nom}}</h1>
             <h1>Ou a été réalisé ce film ?</h1>
 
-            <form name="reviewForm_dynamique" ng-submit="goresult()">
-  <!--
-              <label>Latitude : <div id="choix"><input type="number" name="cbox1" ng-model="resultlatitude"></div></label><br>
-              <label>Longitude : <div id="choix"><input type="number" name="cbox1" ng-model="resultlongitude"></div></label><br>
-  -->
-              <p>Veuillez cliquer l'endroit sur la map en dessous !</p>
-              <p>Latitude sélectionnée : {{resultlatitude}}</p>
-              <p>Longitude sélectionnée : {{resultlongitude}}</p>
-              <button class="btn input" id="valid3" type="submit" value="Valider">Valider</button>
-            </form>
+            <p>Veuillez cliquer l'endroit sur la map en dessous !</p>
+            <p>Latitude sélectionnée : {{resultlatitude}}</p>
+            <p>Longitude sélectionnée : {{resultlongitude}}</p>
+
+            <div ng-show="repondu && resultoutrue" class="alert alert-success" role="alert">bonne réponse.</div>
+            <div ng-show="repondu && !resultoutrue" class="alert alert-danger" role="alert">mauvaise réponse.</div>
           </div>
           <div ng-show="questionsresult">
-            <h1 class="movieTitle">{{movie.nom}}</h1>
-            <div id="resultats">
-              <p>RESULTATS : </p>
-              <div ng-show="resultquitrue">
-                <p style="color:green;">Ce film a bien été réalisé par "{{resultqui}}"</p>
-              </div>
-              <div ng-show="!resultquitrue">
-                <p style="color:#942d40;">Ce film n'a pas été réalisé par "{{resultqui}}" mais par "{{quitrue}}"</p>
-              </div>
-              <div ng-show="resultquandtrue">
-                <p style="color:green;">Ce film a bien été réalisé en "{{resultquand}}"</p>
-              </div>
-              <div ng-show="!resultquandtrue">
-                <p style="color:#942d40;">Ce film n'a pas été réalisé en "{{resultquand}}" mais en "{{quandtrue}}"</p>
-              </div>
-              <div ng-show="resultoutrue">
-                <p style="color:green;">Ce film a été réalisé en latitude : "{{latitudetrue}}" et en longitude : "{{longitudetrue}}" (Votre réponse a
-                  été validée car vous étiez à moins de 20 pour chaques coordonnées ! )</p>
-              </div>
-              <div ng-show="!resultoutrue">
-                <p style="color:#942d40;">Ce film n'a pas été réalisé en latitude : "{{resultlatitude}}" et en longitude : "{{resultlongitude}}" mais en latitude : "{{latitudetrue}}" et en longitude : "{{longitudetrue}}"</p>
-              </div>
-            </div>
+            <button id="nextfilm" value="nextfilm" name="nextfilm" ng-click ="suivant()" class="btn" ng-show="!endquestionnaire">Film suivant</button> <br/>
+            <button id="end" value="end" name="end" ng-click ="goendgame()" class="btn" ng-show="endquestionnaire">Fin</button> <br/>
+          </div>
             <div ng-show="!endquestionnaire">
               <form name="reviewForm_dynamique" ng-submit="suivant()">
 				<button class="btn input" type="submit">Film suivant</button>
@@ -178,8 +182,6 @@
     <div class="map">
       <p ng-show="!ready && mapshow" >Initialisation de la map Google ... ... </p>
       <ng-map ng-show="mapshow" id="map" zoom="1" on-click="getpos($event)">
-        <marker position="{{latlng}}" title="Hello World!" on-dragend="getpos($event)"
-                animation="DROP" draggable="true"></marker>
       </ng-map>
     </div>
   </div>
