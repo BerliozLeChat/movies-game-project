@@ -10,11 +10,3 @@ testapi/*
 untitled/*
 RemoteSystemsTempFiles/*
 .idea/*
-.idea/*/*
-.idea/*/*/*
-.idea/libraries/*
-.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml
-.idea/artifacts/movies_game_Web_exploded.xml
-*.xml
-.idea/compiler.xml
-.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml
