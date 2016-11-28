@@ -4,6 +4,28 @@
          xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
          version="2.5">
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>security_game</web-resource-name>
+      <url-pattern>moviesgameoff.appspot.com/game/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>security_admin</web-resource-name>
+      <url-pattern>moviesgameoff.appspot.com/administration/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+
   <servlet>
     <servlet-name>HelloAppEngine</servlet-name>
     <servlet-class>fr.nantes.web.quizz.servlets.HelloAppEngine</servlet-class>
