@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr"  ng-app="movies-game">
+<html lang="fr" >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -31,20 +31,12 @@
     <link href="https://fonts.googleapis.com/css?family=Signika|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="../styleheader.css" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet" />
+    <link href="../errors/style.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
-    <script type="text/javascript" src="app.js"></script>
     <meta name="description" content="game Movies Game">
     <meta name="keywords" content="HTML,CSS,JavaScript,Angular,GoogleAppEngine">
     <meta name="author" content="Le Luet Camille, Hallereau François, Vallée Sebastien & Pineau Sullivan">
     <link rel="icon" href="../favicon.ico">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCub8fjqFW8TnU4ICK7AtN1_hJcNwlccRM"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-sanitize.min.js"></script>
-    <script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -67,7 +59,11 @@
 </div>
 <div>
     <div id="errors">
-        <h1>ATTENTION OU TU TRAINES TES PATES !</h1>
+        <div class="sub_error">
+            <h1>ERREUR 404 !</h1>
+            <sub>Vous essayez d'accéder à une page non répertoriée, veuillez vous rediriger vers l'<a href="/">accueil</a> !</sub>
+        </div>
+        <img class="sub_error" src="../errors/dude-wrong-movie.jpg"/>
     </div>
 </div>
 

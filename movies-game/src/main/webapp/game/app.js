@@ -42,7 +42,6 @@
 
             $scope.sname = 'sullivan';
             $scope.sid = 111;
-            /*        $scope.data =[];*/
 
 
             $scope.ready =false;

@@ -1,0 +1,13 @@
+#errors{
+    padding: 30px;
+}
+
+#errors img{
+    border-radius: 50px;
+}
+
+.sub_error{
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 15px;
+}
