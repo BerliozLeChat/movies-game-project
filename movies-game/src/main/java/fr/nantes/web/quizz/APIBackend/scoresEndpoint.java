@@ -3,7 +3,8 @@ package fr.nantes.web.quizz.APIBackend;
 /**
  * Created by Sébastien on 23/11/2016.
  */
-import com.google.api.server.spi.auth.common.User;
+//import com.google.api.server.spi.auth.common.User;
+import com.google.appengine.api.users.User;
 import fr.nantes.web.quizz.APIBackend.PMF;
 
 import com.google.api.server.spi.config.Api;
@@ -12,6 +13,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
 import com.google.appengine.api.datastore.Cursor;
 import com.google.appengine.datanucleus.query.JDOCursorHelper;
+import com.google.appengine.api.oauth.OAuthRequestException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -99,27 +101,31 @@ public class scoresEndpoint {
      * @param score the entity to be inserted.
      * @return The inserted entity.
      */
-    @ApiMethod(name = "insertscores")
-    public Scores insertscores(@Named("score")int score, User user) {
-        Scores scores = new Scores(user.getId(),"dddd", score);
-        PersistenceManager mgr = getPersistenceManager();
-        try {
-            if(containsscores(scores)) {
-                Scores scoresPersistence = mgr.getObjectById(Scores.class, scores.id);
-                if(scoresPersistence.getScores() == scores.getScores())
-                    throw new EntityExistsException("Vous venez d'égaliser votre meilleur score !!");
-                else if(scoresPersistence.getScores() > scores.getScores())
-                    throw new EntityExistsException("Vous n'avez pas battu votre meilleur score");
+    @ApiMethod(name = "insertscores", clientIds = {Constants.WEB_CLIENT_ID}, httpMethod = ApiMethod.HttpMethod.PUT)
+    public Scores insertscores(@Named("score")int score, User user) throws OAuthRequestException {
+        if (user ==null)
+            throw new OAuthRequestException("Vous n'êtes");
+        else{
+            Scores scores = new Scores(user.getUserId(), user.getNickname(), score);
+            PersistenceManager mgr = getPersistenceManager();
+            try {
+                if(containsscores(scores)) {
+                    Scores scoresPersistence = mgr.getObjectById(Scores.class, scores.id);
+                    if(scoresPersistence.getScores() == scores.getScores())
+                        throw new EntityExistsException("Vous venez d'égaliser votre meilleur score !!");
+                    else if(scoresPersistence.getScores() > scores.getScores())
+                        throw new EntityExistsException("Vous n'avez pas battu votre meilleur score");
+                    else
+                        mgr.makePersistent(scores);
+                }
                 else
                     mgr.makePersistent(scores);
-            }
-            else
                 mgr.makePersistent(scores);
-            mgr.makePersistent(scores);
-        } finally {
-            mgr.close();
+            } finally {
+                mgr.close();
+            }
+            return scores;
         }
-        return scores;
     }
 
     /**

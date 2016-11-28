@@ -10,6 +10,8 @@ import java.util.Random;
  * Created by Sullivan on 08/11/2016.
  */
 public class Generateurquestionsfilm {
+    private static final String link_path_dbpedia = "https://en.wikipedia.org/?curid=";
+
     public static HashMap<String, String> getquestionsfilm(Film film){
         HashMap<String, String> hmap = new HashMap<String, String>();
 
@@ -100,6 +102,7 @@ public class Generateurquestionsfilm {
         hmap.put("quand_r3",quand_r3);
         hmap.put("quand_vrai",quand_vrai);
         hmap.put("pays",film.getPays());
+        hmap.put("link_dbpedia",link_path_dbpedia + film.getId_wiki());
 
         return hmap;
     }
