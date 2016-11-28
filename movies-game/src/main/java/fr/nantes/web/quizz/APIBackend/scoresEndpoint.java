@@ -100,26 +100,26 @@ public class scoresEndpoint {
      * @return The inserted entity.
      */
     @ApiMethod(name = "insertscores")
-    public Scores insertscores(int score, User user) {
-        Scores scores = new Scores(user.getId(), "ddd", score);
+    public Scores insertscores(@Named("score")int score, User user) {
+        Scores scores = new Scores(user.getId(), score);
         PersistenceManager mgr = getPersistenceManager();
         try {
             if(containsscores(scores)) {
-                Scores scoresPersistence = mgr.getObjectById(Scores.class, score.id);
+                Scores scoresPersistence = mgr.getObjectById(Scores.class, scores.id);
                 if(scoresPersistence.getScores() == scores.getScores())
                     throw new EntityExistsException("Vous venez d'égaliser votre meilleur score !!");
                 else if(scoresPersistence.getScores() > scores.getScores())
                     throw new EntityExistsException("Vous n'avez pas battu votre meilleur score");
                 else
-                    mgr.makePersistent(score);
+                    mgr.makePersistent(scores);
             }
             else
-                mgr.makePersistent(score);
-            mgr.makePersistent(score);
+                mgr.makePersistent(scores);
+            mgr.makePersistent(scores);
         } finally {
             mgr.close();
         }
-        return score;
+        return scores;
     }
 
     /**
