@@ -153,9 +153,9 @@
   </servlet-mapping>
 
   <!--Gestion des erreurs et redirection -->
-  <error-page>
+<!--  <error-page>
     <error-code>500</error-code>
     <location>/errors/error_500.jsp</location>
-  </error-page>
+  </error-page>-->
 
 </web-app>
