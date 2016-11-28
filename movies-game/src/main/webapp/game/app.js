@@ -157,13 +157,29 @@
             $scope.longitudetrue =0;
             $scope.endquestionnaire=false;
             $scope.bonus=1;
+            var rootApi = 'https://moviesgameoff.appspot.com/_ah/api/';
+
             $scope.goendgame =function() {
                 if($scope.questionsresult){
+
+                    /*gapi.client.load('scoresendpoint', 'v1', function() {
+                        console.log("todos api loaded");
+
+                        gapi.client.scoresendpoint.insertscores({scores:$scope.score}).execute(
+                            function(resp) {
+                                console.log(resp);
+                            });
+
+
+                        gapi.client.scoresendpoint.listscores().execute(
+                            function(resp) {
+                                console.log(resp);
+                            });
+                    }, rootApi);*/
                     $scope.questionsresult=false;
                     $scope.endgame = true;
                     $scope.mapshow = false;
                     $scope.questionsou=false;
-                    $scope.endgame = true;
                 }
             }
 
