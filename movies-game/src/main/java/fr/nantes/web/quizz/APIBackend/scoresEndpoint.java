@@ -3,6 +3,7 @@ package fr.nantes.web.quizz.APIBackend;
 /**
  * Created by Sébastien on 23/11/2016.
  */
+import com.google.api.server.spi.auth.common.User;
 import fr.nantes.web.quizz.APIBackend.PMF;
 
 import com.google.api.server.spi.config.Api;
@@ -95,29 +96,30 @@ public class scoresEndpoint {
      * exists in the datastore, an exception is thrown.
      * It uses HTTP POST method.
      *
-     * @param scores the entity to be inserted.
+     * @param score the entity to be inserted.
      * @return The inserted entity.
      */
     @ApiMethod(name = "insertscores")
-    public Scores insertscores(Scores scores) {
+    public Scores insertscores(int score, User user) {
+        Scores scores = new Scores(user.getId(), "ddd", score);
         PersistenceManager mgr = getPersistenceManager();
         try {
             if(containsscores(scores)) {
-                Scores scoresPersistence = mgr.getObjectById(Scores.class, scores.id);
+                Scores scoresPersistence = mgr.getObjectById(Scores.class, score.id);
                 if(scoresPersistence.getScores() == scores.getScores())
                     throw new EntityExistsException("Vous venez d'égaliser votre meilleur score !!");
                 else if(scoresPersistence.getScores() > scores.getScores())
                     throw new EntityExistsException("Vous n'avez pas battu votre meilleur score");
                 else
-                    mgr.makePersistent(scores);
+                    mgr.makePersistent(score);
             }
             else
-                mgr.makePersistent(scores);
-            mgr.makePersistent(scores);
+                mgr.makePersistent(score);
+            mgr.makePersistent(score);
         } finally {
             mgr.close();
         }
-        return scores;
+        return score;
     }
 
     /**

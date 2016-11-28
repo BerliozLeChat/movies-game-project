@@ -173,36 +173,36 @@
 
                 <configuration>
                     <api>JPA</api>
-                    <mappingIncludes>**/entities/*.class</mappingIncludes>
-                    <verbose>true</verbose>
-                </configuration>
+                    <!--<mappingIncludes>**/entities/*.class</mappingIncludes>-->
+                   <verbose>true</verbose>
+               </configuration>
 
-                <dependencies>
-                    <dependency>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-core</artifactId>
-                        <version>${datanucleus.jpa.version}</version>
-                    </dependency>
-                </dependencies>
+               <dependencies>
+                   <dependency>
+                       <groupId>org.datanucleus</groupId>
+                       <artifactId>datanucleus-core</artifactId>
+                       <version>${datanucleus.jpa.version}</version>
+                   </dependency>
+               </dependencies>
 
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+               <executions>
+                   <execution>
+                       <phase>compile</phase>
+                       <goals>
+                           <goal>enhance</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <archiveClasses>true</archiveClasses>
-                    <webResources>
-                        <!-- in order to interpolate version from pom into appengine-web.xml -->
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>2.6</version>
+               <configuration>
+                   <archiveClasses>true</archiveClasses>
+                   <webResources>
+                       <!-- in order to interpolate version from pom into appengine-web.xml -->
                         <resource>
                             <directory>${basedir}/src/main/webapp/WEB-INF</directory>
                             <filtering>true</filtering>

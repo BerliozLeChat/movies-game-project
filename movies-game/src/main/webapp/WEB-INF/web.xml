@@ -5,20 +5,22 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
          version="2.5">
 
+
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>security_game</web-resource-name>
-      <url-pattern>moviesgameoff.appspot.com/game/*</url-pattern>
+      <url-pattern>/game/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>*</role-name>
     </auth-constraint>
   </security-constraint>
 
+
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>security_admin</web-resource-name>
-      <url-pattern>moviesgameoff.appspot.com/administration/*</url-pattern>
+      <url-pattern>/administration/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>admin</role-name>
@@ -59,12 +61,30 @@
 
   <!--mapping et configuration des servlets UTILISATEURS-->
   <servlet>
-    <servlet-name>getUser</servlet-name>
+    <servlet-name>getUserAcceuil</servlet-name>
     <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>getUser</servlet-name>
+    <servlet-name>getUserAcceuil</servlet-name>
     <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getUserAdmin</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUserAdmin</servlet-name>
+    <url-pattern>/admininistration/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getUserGame</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUserGame</servlet-name>
+    <url-pattern>/game/</url-pattern>
   </servlet-mapping>
 
   <!--mapping et configuration des servlets jeu-->
@@ -131,5 +151,11 @@
     <servlet-name>Addadmin</servlet-name>
     <url-pattern>/admin/addadmin</url-pattern>
   </servlet-mapping>
+
+  <!--Gestion des erreurs et redirection -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/errors/error_404.jsp</location>
+  </error-page>
 
 </web-app>

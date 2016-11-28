@@ -19,6 +19,13 @@ public class Scores {
     String name;
     @Persistent
     int score;
+
+    public Scores(String id, String name, int score) {
+        this.id = id;
+        this.name = name;
+        this.score = score;
+    }
+
     public String getId() {
         return id;
     }
