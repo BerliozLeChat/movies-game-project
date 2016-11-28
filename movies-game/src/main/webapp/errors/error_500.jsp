@@ -18,7 +18,6 @@
     if (request.getAttribute("nomUser") == null){
         connexion = false;
         url = (String) request.getAttribute("urlCo");
-        response.sendRedirect("/");
     }else{
         connexion = true;
         url = (String) request.getAttribute("urlDeco");
