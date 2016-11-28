@@ -101,7 +101,7 @@ public class scoresEndpoint {
      */
     @ApiMethod(name = "insertscores")
     public Scores insertscores(@Named("score")int score, User user) {
-        Scores scores = new Scores(user.getId(), score);
+        Scores scores = new Scores(user.getId(),"dddd", score);
         PersistenceManager mgr = getPersistenceManager();
         try {
             if(containsscores(scores)) {
