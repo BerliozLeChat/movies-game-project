@@ -60,10 +60,10 @@
 <div>
     <div id="errors">
         <div class="sub_error">
-            <h1>ERREUR 500 !</h1>
-            <sub>Vous essayez d'accéder à une page non répertoriée, veuillez vous rediriger vers l'<a href="/">accueil</a> !</sub>
+            <h1>ERREUR 403 !</h1>
+            <sub>Vous essayez d'accéder à une page pour laquelle vous n'avez pas la permission ! veuillez vous rediriger vers l'<a href="/">accueil</a> !</sub>
         </div>
-        <img class="sub_error" src="../errors/erreur_500_image.jpg"/>
+        <img class="sub_error" src="../errors/erreur_403_image.jpg"/>
     </div>
 </div>
 
