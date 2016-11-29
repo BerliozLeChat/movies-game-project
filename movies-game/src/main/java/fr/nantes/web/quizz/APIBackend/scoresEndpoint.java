@@ -101,10 +101,10 @@ public class scoresEndpoint {
      * @param score the entity to be inserted.
      * @return The inserted entity.
      */
-    @ApiMethod(name = "insertscores", clientIds = {Constants.WEB_CLIENT_ID}, httpMethod = ApiMethod.HttpMethod.PUT)
+    @ApiMethod(name = "insertscores",  clientIds = {Constants.WEB_CLIENT_ID}, httpMethod = ApiMethod.HttpMethod.PUT)
     public Scores insertscores(@Named("score")int score, User user) throws OAuthRequestException {
         if (user ==null)
-            throw new OAuthRequestException("Vous n'êtes");
+            throw new OAuthRequestException("Vous n'êtes pas connecté, veuillez dégager d'ici");
         else{
             Scores scores = new Scores(user.getUserId(), user.getNickname(), score);
             PersistenceManager mgr = getPersistenceManager();

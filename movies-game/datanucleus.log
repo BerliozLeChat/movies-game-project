@@ -124,3 +124,15 @@
 00:43:38,783 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
 00:43:39,021 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
 00:43:39,022 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=267 ms, enhance=62 ms, total=329 ms. Consult the log for full details
+00:47:11,711 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+00:47:12,104 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+00:47:12,197 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+00:47:12,198 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+00:47:12,531 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+00:47:12,532 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=361 ms, enhance=65 ms, total=426 ms. Consult the log for full details
+00:57:35,741 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+00:57:36,088 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+00:57:36,167 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+00:57:36,167 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+00:57:36,525 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+00:57:36,527 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=364 ms, enhance=71 ms, total=435 ms. Consult the log for full details
