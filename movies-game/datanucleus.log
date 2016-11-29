@@ -136,3 +136,15 @@
 00:57:36,167 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
 00:57:36,525 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
 00:57:36,527 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=364 ms, enhance=71 ms, total=435 ms. Consult the log for full details
+01:01:04,948 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+01:01:05,317 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+01:01:05,411 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+01:01:05,411 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+01:01:05,802 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+01:01:05,803 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=407 ms, enhance=76 ms, total=483 ms. Consult the log for full details
+01:02:28,910 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+01:02:29,230 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+01:02:29,313 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+01:02:29,313 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+01:02:29,497 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+01:02:29,498 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=234 ms, enhance=31 ms, total=265 ms. Consult the log for full details

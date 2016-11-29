@@ -75,7 +75,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>getUserAdmin</servlet-name>
-    <url-pattern>/admininistration/</url-pattern>
+    <url-pattern>/admininistration/*</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -84,7 +84,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>getUserGame</servlet-name>
-    <url-pattern>/game/</url-pattern>
+    <url-pattern>/game/*</url-pattern>
   </servlet-mapping>
 
   <!--mapping et configuration des servlets jeu-->
