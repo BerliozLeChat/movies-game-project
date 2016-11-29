@@ -69,24 +69,6 @@
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
 
-  <servlet>
-    <servlet-name>getUserAdmin</servlet-name>
-    <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getUserAdmin</servlet-name>
-    <url-pattern>/admininistration/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>getUserGame</servlet-name>
-    <servlet-class>fr.nantes.web.quizz.users.GetUsersServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>getUserGame</servlet-name>
-    <url-pattern>/game/*</url-pattern>
-  </servlet-mapping>
-
   <!--mapping et configuration des servlets jeu-->
   <servlet>
     <servlet-name>Quizzquestions</servlet-name>
