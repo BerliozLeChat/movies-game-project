@@ -1,1 +1,15 @@
 /* Put your css in here */
+.middle{
+    display:inline-block;
+    width:30%;
+    min-width:200px;
+    vertical-align:top;
+}
+
+#description, #top{
+    padding:20px;
+    margin:20px;
+    margin-top:50px;
+    padding-top:20px;
+    background-color: rgba(0,0,0,0.3);
+}

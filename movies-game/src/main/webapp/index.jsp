@@ -58,7 +58,10 @@
         <a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
     </div>
 </div>
-<div id="menu">
+<div class="middle" id="description">
+    <p>Bienvenue sur notre application. Le jeu consiste à répondre à un maximum de questions sur les films stoqués sur DBpedia. Le questionnaire est composé de 10 films et sur chaque film, 3 questions sont posées (qui a réalisé le film ? quand a-t-il été réalisé ? ou a-t-il été réalisé?).</p>
+</div>
+<div class="middle" id="menu">
     <% if(!connexion){ %>
        <div id="input_connection">
            <a id="connexion_menu" href="<% out.println(url); %>">
@@ -84,6 +87,55 @@
             </a>
         </div>
     <% } %>
+</div>
+<div class="middle" id="top">
+    <p> Voici le top 10 du jeu : </p>
+    <table style="width:100%">
+        <tr>
+            <th>Position</th>
+            <th>Scores</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1500</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1480</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>1330</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>1300</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>1250</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>1100</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>988</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>977</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>754</td>
+        </tr>
+    </table>
 </div>
 <script src="https://apis.google.com/js/client.js?onload=init"></script>
 </body>
