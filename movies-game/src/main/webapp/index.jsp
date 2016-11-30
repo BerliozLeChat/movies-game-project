@@ -62,25 +62,25 @@
     <% if(!connexion){ %>
        <div id="input_connection">
            <a id="connexion_menu" href="<% out.println(url); %>">
-               <button class="btn" type="button">Se Connecter</button>
+               <button class="btn input" type="button">Se Connecter</button>
            </a>
        </div>
     <% }else{ %>
         <div id="input_connection">
                 <a id="" href="<% out.println(url); %>">
-                    <button class="btn" type="submit">Se déconnecter</button>
+                    <button class="btn input" type="submit">Se déconnecter</button>
                 </a>
         </div>
         <div id="input_jeu">
            <a href="/game/">
-               <button class="btn" type="submit">Jouer</button>
+               <button class="btn input" type="submit">Jouer</button>
            </a>
         </div>
     <% } %>
     <% if(admin){ %>
         <div id="input_administration">
             <a href="/administration/">
-                <button class="btn" type="submit">Administration</button>
+                <button class="btn input" type="submit">Administration</button>
             </a>
         </div>
     <% } %>
