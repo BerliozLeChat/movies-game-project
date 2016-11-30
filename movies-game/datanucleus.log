@@ -166,3 +166,69 @@
 11:22:59,612 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
 11:23:00,061 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
 11:23:00,063 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=501 ms, enhance=74 ms, total=575 ms. Consult the log for full details
+11:27:00,631 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:27:00,984 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:27:01,071 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:27:01,071 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:27:01,277 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+11:27:01,278 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=256 ms, enhance=37 ms, total=293 ms. Consult the log for full details
+11:30:19,809 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:30:20,172 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:30:20,257 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:30:20,257 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:30:20,613 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+11:30:20,614 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=379 ms, enhance=61 ms, total=440 ms. Consult the log for full details
+11:38:43,078 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:38:43,561 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:38:43,675 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:38:43,675 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:38:44,126 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+11:38:44,128 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=490 ms, enhance=75 ms, total=565 ms. Consult the log for full details
+11:40:16,893 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:40:17,299 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:40:17,401 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:40:17,401 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:40:17,627 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+11:40:17,628 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=289 ms, enhance=35 ms, total=324 ms. Consult the log for full details
+11:43:13,981 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:43:14,407 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:43:14,510 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:43:14,510 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:43:14,742 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+11:43:14,742 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=296 ms, enhance=36 ms, total=332 ms. Consult the log for full details
+11:52:33,896 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:52:34,268 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:52:34,365 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+11:52:34,366 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+11:52:34,590 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+11:52:34,592 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=280 ms, enhance=41 ms, total=321 ms. Consult the log for full details
+12:05:14,385 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+12:05:14,719 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:05:14,812 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+12:05:14,813 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+12:05:15,002 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+12:05:15,002 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=245 ms, enhance=34 ms, total=279 ms. Consult the log for full details
+12:08:13,266 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+12:08:13,626 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:08:13,701 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+12:08:13,701 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+12:08:13,912 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+12:08:13,914 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=222 ms, enhance=63 ms, total=285 ms. Consult the log for full details
+13:21:19,009 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+13:21:19,368 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+13:21:19,458 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+13:21:19,459 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+13:21:19,802 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+13:21:19,803 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=364 ms, enhance=69 ms, total=433 ms. Consult the log for full details
+13:22:58,218 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+13:22:58,536 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+13:22:58,617 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+13:22:58,617 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+13:22:58,792 (main) INFO  [DataNucleus.Enhancer] - Class "fr.nantes.web.quizz.APIBackend.Scores" is already enhanced.
+13:22:58,792 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=235 ms, enhance=19 ms, total=254 ms. Consult the log for full details
+13:24:34,876 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+13:24:35,443 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+13:24:35,538 (main) WARN  [DataNucleus.MetaData] - Metadata file -enhancerName not found in CLASSPATH
+13:24:35,538 (main) WARN  [DataNucleus.MetaData] - Metadata file ASM not found in CLASSPATH
+13:24:35,916 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\Sébastien\IdeaProjects\movies-game-project\movies-game\target\movies-game-1.0-SNAPSHOT\WEB-INF\classes\fr\nantes\web\quizz\APIBackend\Scores.class" with enhanced definition
+13:24:35,918 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=363 ms, enhance=110 ms, total=473 ms. Consult the log for full details
