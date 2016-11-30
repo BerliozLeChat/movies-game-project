@@ -21,6 +21,7 @@
 .movieTitle {
   font-family: 'Signika', sans-serif;
   color:#FAB75C;
+  text-shadow: 1px 1px 2px #322412;
 }
 
 .input { 
@@ -59,6 +60,9 @@
     background-color: #fef0de;
     box-shadow: 0px 1px 2px #FCD39D;
 	border: 1px solid #FAB75C;
+}
+.btn[disabled]{
+	opacity: 1;
 }
 #choix{
     font-size: 20px;

@@ -34,6 +34,11 @@
     <meta charset="utf-8" />
     <title>Movies game</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
+	<!-- BOOTSTRAP -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- END BOOTSTRAP -->
     <link href="../styleheader.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
     <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
@@ -68,31 +73,31 @@
         <form name="reviewForm_dynamique" ng-submit="function_ajoutmovies()">
             <label>Nombre de movies à ajouter dans le datastore (max 500 à la fois): <input type="number" ng-model="nbmoviesadd"></label><br>
             <p>{{nbmoviesadd}}</p>
-            <input type="submit" value="Update datastore des movies" />
+            <button type="submit"  class="btn">Update datastore des movies"</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_ajoutdirectors()">
             <label>Nombre de directors à mettre en tout dans le datastore : <input type="number" ng-model="nbdirectors"></label><br>
             <p>{{nbdirectors}}</p>
-            <input type="submit" value="Update datastore des directors" />
+            <button type="submit" class="btn">Update datastore des directors</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_ajoutadmin()">
             <label>id du user à ajouter en tant qu'admin : <input type="text" name="cbox1" ng-model="idadmin"></label><br>
             <p>{{idadmin}}</p>
-            <input type="submit" value="Ajouter en Admin !" />
+            <button type="submit" class="btn">Ajouter en Admin</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbmoviesdatastore()">
-            <input type="submit" value="Compter le nombre de movies disponible dans le Datastore" />
+            <button type="submit" class="btn">Compter le nombre de movies disponible dans le Datastore</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="function_nbdirectors()">
-            <input type="submit" value="Compter le nombre de directors disponible" />
+            <button type="submit" class="btn">Compter le nombre de directors disponible</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_nbmovies()">
-            <input type="submit" value="Compter le nombre de movies disponible via la requete Sparql" />
+            <button type="submit" class="btn">Compter le nombre de movies disponible via la requete Sparql</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_generation()">
-            <input type="submit" value="Tester la génération questions JSON" />
+            <button type="submit" class="btn">Tester la génération questions JSON</button>" />
         </form>
-        <a href="https://moviesgameoff.appspot.com/_ah/api/explorer"><button type="button">Aller sur l'API</button></a>
+        <a href="https://moviesgameoff.appspot.com/_ah/api/explorer"><button type="button" class="btn">Aller sur l'API</button></a>
     </div>
 
     <div class="resultats">
@@ -166,7 +171,7 @@
             <p>Une Erreur s'est produite lors de la génération des questions !!!!!</p>
         </div>
         <form name="reviewForm_dynamique" ng-submit="clear()">
-            <input type="submit" value="Clear" />
+            <button type="submit" class="btn">Clear</button>
         </form>
     </div>
 
