@@ -95,7 +95,7 @@
             <button type="submit" class="btn">Compter le nombre de movies disponible via la requete Sparql</button>
         </form>
         <form name="reviewForm_dynamique" ng-submit="fonction_generation()">
-            <button type="submit" class="btn">Tester la génération questions JSON</button>" />
+            <button type="submit" class="btn">Tester la génération questions JSON</button>
         </form>
         <a href="https://moviesgameoff.appspot.com/_ah/api/explorer"><button type="button" class="btn">Aller sur l'API</button></a>
     </div>
