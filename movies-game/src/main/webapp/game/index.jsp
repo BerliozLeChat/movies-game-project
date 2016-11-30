@@ -158,7 +158,7 @@
           <div ng-show="questionsresult">
             <button id="nextfilm" value="nextfilm" name="nextfilm" ng-click ="suivant()" class="btn" ng-show="!endquestionnaire">Film suivant</button> <br/>
             <button id="end" value="end" name="end" ng-click ="goendgame()" class="btn" ng-show="endquestionnaire">Fin</button> <br/>
-            <a href=movie.link_dbpedia>plus d'information sur le film</a>
+            <a href="{{movie.link_dbpedia}}">plus d'information sur le film</a>
           </div>
           </div>
           <div ng-show="endgame">
