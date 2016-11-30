@@ -76,7 +76,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Quizzquestions</servlet-name>
-    <url-pattern>/jeu/quizzquestions</url-pattern>
+    <url-pattern>/game/quizzquestions</url-pattern>
   </servlet-mapping>
 
   <!--mapping et configuration des servlets ADMIN-->
@@ -86,7 +86,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Nbmovies</servlet-name>
-    <url-pattern>/admin/nbmovies</url-pattern>
+    <url-pattern>/administration/nbmovies</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -95,7 +95,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Nbmoviesdatastore</servlet-name>
-    <url-pattern>/admin/nbmoviesdatastore</url-pattern>
+    <url-pattern>/administration/nbmoviesdatastore</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -104,7 +104,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Nbdirectors</servlet-name>
-    <url-pattern>/admin/nbdirectors</url-pattern>
+    <url-pattern>/administration/nbdirectors</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -113,7 +113,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Adddirectors</servlet-name>
-    <url-pattern>/admin/adddirectors</url-pattern>
+    <url-pattern>/administration/adddirectors</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -122,7 +122,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Addmovies</servlet-name>
-    <url-pattern>/admin/addmovies</url-pattern>
+    <url-pattern>/administration/addmovies</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -131,7 +131,7 @@
 </servlet>
   <servlet-mapping>
     <servlet-name>Addadmin</servlet-name>
-    <url-pattern>/admin/addadmin</url-pattern>
+    <url-pattern>/administration/addadmin</url-pattern>
   </servlet-mapping>
 
   <!--Gestion des erreurs et redirection -->

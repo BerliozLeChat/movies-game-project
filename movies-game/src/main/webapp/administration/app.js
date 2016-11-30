@@ -46,7 +46,7 @@
 
             $scope.function_ajoutmovies =function() {
                 $scope.ajout_movies_attente=true;
-                var promise = $http.get('/admin/addmovies', {
+                var promise = $http.get('/administration/addmovies', {
                     params: { nbmoviesadd: $scope.nbmoviesadd}
                 });
                 promise.success(function(data) {
@@ -101,7 +101,7 @@
             $scope.function_ajoutadmin =function() {
                 if($scope.idadmin!=""){
                     $scope.ajout_admin_attente=true;
-                    var promise = $http.get('/admin/addadmin', {
+                    var promise = $http.get('/administration/addadmin', {
                         params: {idadmin: $scope.idadmin}
                     });
                     promise.success(function (data) {
@@ -126,7 +126,7 @@
 
             $scope.function_nbmoviesdatastore =function() {
                 $scope.nb_moviesdatastore_disponible_attente=true;
-                var promise = $http.get('/admin/nbmoviesdatastore');
+                var promise = $http.get('/administration/nbmoviesdatastore');
 
                 promise.success(function(data) {
                     $scope.nbmoviesdispo = data["0"]["count"];
@@ -142,7 +142,7 @@
 
             $scope.function_nbdirectors =function() {
                 $scope.nb_directors_disponible_attente=true;
-                var promise = $http.get('/admin/nbdirectors');
+                var promise = $http.get('/administration/nbdirectors');
 
                 promise.success(function(data) {
                     $scope.nbdirectordispo = data["0"]["count"];
@@ -157,7 +157,7 @@
             }
             $scope.fonction_nbmovies =function() {
                 $scope.nb_movies_disponible_attente=true;
-                var promise = $http.get('/admin/nbmovies');
+                var promise = $http.get('/administration/nbmovies');
 
                 promise.success(function(data) {
                     $scope.nbmovies = data["0"]["count"];
@@ -172,7 +172,7 @@
             }
             $scope.fonction_generation =function() {
                 $scope.gereration_attente=true;
-                var promise = $http.get('/jeu/quizzquestions');
+                var promise = $http.get('/game/quizzquestions');
 
                 promise.success(function(data) {
                     $scope.gereration_attente=false;

@@ -47,7 +47,7 @@
             $scope.ready =false;
             $scope.movie = [];
 
-            var promise = $http.get('/jeu/quizzquestions');
+            var promise = $http.get('/game/quizzquestions');
 
             promise.success(function(data) {
                 $scope.data = data;
@@ -210,7 +210,7 @@
                     $scope.questionnaires =false;
                     $scope.i=0;
                     $scope.ready = false;
-                    promise = $http.get('/jeu/quizzquestions');
+                    promise = $http.get('/game/quizzquestions');
                     promise.success(function(data) {
                         $scope.data = data;
                         $scope.ready = true;
