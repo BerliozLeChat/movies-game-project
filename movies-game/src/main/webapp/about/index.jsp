@@ -34,7 +34,7 @@
     <link rel="icon" href="../favicon.ico">
 </head>
 <body>
-<%@ include file="./header.jsp" %>
+<jsp:include page="/header.jsp"></jsp:include>
 <div id="about">
     <h1>À propos</h1>
     <div class="barre_about"></div>

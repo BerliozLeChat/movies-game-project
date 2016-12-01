@@ -51,7 +51,7 @@
 </head>
 <body>
 
-<%@ include file="./header.jsp" %>
+<jsp:include page="/header.jsp"></jsp:include>
 
 <div id="administration"  ng-controller="madonnee_dynamique as mydonnee_dynamique">
     <h1>Admin</h1>
