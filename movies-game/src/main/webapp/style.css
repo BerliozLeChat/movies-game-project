@@ -1,15 +1,17 @@
 /* Put your css in here */
 .middle{
-    display:inline-block;
+    display:block;
     width:30%;
     min-width:200px;
     vertical-align:top;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #description, #top{
     padding:20px;
-    margin:20px;
-    margin-top:50px;
+    margin-top:100px;
     padding-top:20px;
     background-color: rgba(0,0,0,0.3);
 }
+

@@ -27,6 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mon compte</title>  
+	<link href="https://fonts.googleapis.com/css?family=Signika|Montserrat" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="../styleheader.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
@@ -38,23 +39,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="header">
-  <div id="headerleft">
-    <a href="/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
-  </div>
-  <div id="headercenter">
-        <% if(connexion){ %>
-        <div class="link_right"><a id="mon compte" href="/account/">Mon Compte</a></div>
-        <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
-        <% }else{ %>
-        <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
-        <% } %>
-    <div class="link_right"><a id="about" href="/about/">A propos</a></div>
-  </div>
-  <div id="headerright">  
-	<a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
-  </div>
-</div>
+
+<%@ include file="./header.jsp" %>
 
 <div id="account">
     <h1>Mon compte</h1>

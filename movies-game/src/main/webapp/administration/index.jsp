@@ -34,6 +34,7 @@
     <meta charset="utf-8" />
     <title>Movies game</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
+	<link href="https://fonts.googleapis.com/css?family=Signika|Montserrat" rel="stylesheet"> 
 	<!-- BOOTSTRAP -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -49,23 +50,8 @@
     <link rel="icon" href="../favicon.ico">
 </head>
 <body>
-<div id="header">
-    <div id="headerleft">
-        <a href="/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
-    </div>
-    <div id="headercenter">
-        <% if(connexion){ %>
-        <div class="link_right"><a id="mon compte" href="https://moviesgameoff.appspot.com/account/">Mon Compte</a></div>
-        <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
-        <% }else{ %>
-        <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
-        <% } %>
-        <div class="link_right"><a id="about" href="https://moviesgameoff.appspot.com/about/">A propos</a></div>
-    </div>
-    <div id="headerright">
-        <a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
-    </div>
-</div>
+
+<%@ include file="./header.jsp" %>
 
 <div id="administration"  ng-controller="madonnee_dynamique as mydonnee_dynamique">
     <h1>Admin</h1>

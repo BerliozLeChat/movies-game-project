@@ -25,6 +25,7 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+	<link href="https://fonts.googleapis.com/css?family=Signika|Montserrat" rel="stylesheet"> 
     <link href="/styleheader.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
     <meta name="description" content="About Movies Game">
@@ -33,29 +34,13 @@
     <link rel="icon" href="../favicon.ico">
 </head>
 <body>
-<div id="header">
-  <div id="headerleft">
-    <a href="/"><img id="image_header" src="/Film-icon.png" alt="icon" height="50" width="50"></a>
-  </div>
-  <div id="headercenter">
-        <% if(connexion){ %>
-        <div class="link_right"><a id="mon compte" href="/account/">Mon Compte</a></div>
-        <div class="link_right"><a id="deconnexion" href="<% out.println(url); %>">Se déconnecter</a></div>
-        <% }else{ %>
-        <div class="link_right"><a id="connexion" href="<% out.println(url); %>">Se Connecter</a></div>
-        <% } %>
-    <div class="link_right"><a id="about" href="/about/">A propos</a></div>
-  </div>
-  <div id="headerright">  
-	<a href="https://github.com/BerliozLeChat/movies-game-project"><img id="image_git" src="/github.png" alt="githubicon" height="50" width="50"></a>
-  </div>
-</div>
+<%@ include file="./header.jsp" %>
 <div id="about">
     <h1>À propos</h1>
     <div class="barre_about"></div>
-    <div id="description_app"><p>Dans le cadre de notre master informatique en architectures logicielles, nous avons créer une application web déployée avec Google App Engine. Grâce à nos cours de Web&Cloud encadré par M. Molly, nous avons pu réaliser
-    cette application. Elle consiste à répondre à un quizz portant sur 10 films et que chaque film possède 3 questions (Qui ?, Quand ?, Où ?).
-    Si le joueur, connecté via son compte google, réussi à atteindre le tableau des meilleurs score celui-ci entre alors dans le tableau (Les données des films sont des données libres, récupérées via une requète Sparql sur DBpedia).</p></div>
+    <div id="description_app"><p>Dans le cadre de notre master informatique en architectures logicielles, nous avons créé une application web déployée avec Google App Engine. Grâce à nos cours de Web&Cloud encadré par M. Molly, nous avons pu réaliser
+    cette application. Le jeu consiste à répondre à un maximum de questions sur les films stockés sur DBpedia. Le questionnaire est composé de 10 films comportant chacun 3 questions (qui a réalisé le film ? quand a-t-il été réalisé ? ou a-t-il été réalisé?).
+    Si le joueur, connecté via son compte google, réussi à atteindre le tableau des meilleurs score celui-ci entre alors dans le tableau.</p></div>
     <div class="barre_about">
     </div>
     <div class="person">
