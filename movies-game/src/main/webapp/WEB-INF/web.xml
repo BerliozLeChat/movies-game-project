@@ -28,14 +28,7 @@
   </security-constraint>
 
 
-  <servlet>
-    <servlet-name>HelloAppEngine</servlet-name>
-    <servlet-class>fr.nantes.web.quizz.servlets.HelloAppEngine</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloAppEngine</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
+
 
   <!--configuration des fichiers de BIENVENUE-->
   <welcome-file-list>
