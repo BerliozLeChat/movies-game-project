@@ -41,7 +41,7 @@
 
 <body>
 
-<jsp:include page="/header.jsp"></jsp:include>
+<%@include file="/header.jsp" %>
 <div>
     <div id="errors">
         <div class="sub_error">

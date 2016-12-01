@@ -40,7 +40,7 @@
 </head>
 <body>
 
-<jsp:include page="/header.jsp"></jsp:include>
+<%@include file="/header.jsp" %>
 
 <div id="account">
     <h1>Mon compte</h1>

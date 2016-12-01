@@ -42,7 +42,7 @@
     <link rel="icon" href="../favicon.ico">
 </head>
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<%@include file="/header.jsp" %>
 <div class="middle" id="menu">
     <% if(!connexion){ %>
        <div id="input_connection">

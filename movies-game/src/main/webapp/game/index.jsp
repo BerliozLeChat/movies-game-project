@@ -49,7 +49,7 @@
 </head>
 
 <body>
-<jsp:include page="/header.jsp"></jsp:include>
+<%@include file="/header.jsp" %>
 <div ng-controller="madonnee_dynamique as mydonnee_dynamique">
   <div id="div_game">
     <div ng-show="!ready||inputgo">
