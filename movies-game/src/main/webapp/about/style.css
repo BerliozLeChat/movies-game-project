@@ -1,7 +1,8 @@
 .person {
     display: inline-block;
-    width: 300px;
+    width: 200px;
     margin-top: 25px;
+    margin-bottom: 25px;
     padding: 28px;
     margin-left: 5px;
     margin-right: 5px;

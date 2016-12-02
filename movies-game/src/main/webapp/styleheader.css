@@ -68,19 +68,19 @@ body{
 }
 #headerleft{
     display: inline-block;
-    width: 10%;
+    width: 15%;
     text-align: left;
 }
 
 #headercenter{
     display: inline-block;
-    width: 70%;
+    width: 60%;
     text-align: center;
 }
 
 #headerright{
     display: inline-block;
-    width: 10%;
+    width: 15%;
     text-align: right;
 }
 .separator{
@@ -100,7 +100,7 @@ a {
 
 .link_right {
     display: inline-block;
-    width: 17%;
+	padding:0px 5px 0px 5px;
     text-align: center;
     vertical-align: middle;
     min-width: 50px;
