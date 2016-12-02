@@ -10,3 +10,4 @@ testapi/*
 untitled/*
 RemoteSystemsTempFiles/*
 .idea/*
+datanucleus.log
