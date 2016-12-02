@@ -9,7 +9,7 @@
     <artifactId>movies-game</artifactId>
 
     <properties>
-        <project.build.directory>movies-game/target/</project.build.directory>
+        <project.build.directory>target/</project.build.directory>
         <app.id>moviesgameoff</app.id>
         <app.version>1</app.version>
 
