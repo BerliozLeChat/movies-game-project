@@ -35,8 +35,10 @@
     <meta name="keywords" content="HTML,CSS,JavaScript,Angular,GoogleAppEngine">
     <meta name="author" content="Le Luet Camille, Hallereau François, Vallée Sebastien & Pineau Sullivan">
     <link rel="icon" href="../favicon.ico">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
 
@@ -59,56 +61,10 @@
 	<div class="separator"></div>
 </div>
 
-<div id="account">
+<div id="account"  ng-controller="monController as controller">
     <h1>Mon compte</h1>
-    <p>Mon meilleur score est : {{monscore}}</p>
-    <p> Voici le top 10 du jeu : </p>
-    <table style="width:100%">
-        <tr>
-            <th>Position</th>
-            <th>Scores</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1500</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>1480</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>1330</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>1300</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>1250</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>1100</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>988</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>977</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>754</td>
-        </tr>
-    </table>
+    <p ng-show="!scorewait">Mon meilleur score est : {{monscore}}</p>
+    <p ng-show="scorewait">La recherche de votre meilleur score est en cours ...</p>
     <br></br>
     <br></br>
     <br></br>

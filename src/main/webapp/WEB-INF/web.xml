@@ -144,7 +144,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>GetScore</servlet-name>
-    <url-pattern>/game/GetScore</url-pattern>
+    <url-pattern>/account/GetScore</url-pattern>
   </servlet-mapping>
 
   <!--Gestion des erreurs et redirection -->

@@ -119,7 +119,7 @@ public class Requetesdatastore {
         try{
             DatastoreService datastore;
             datastore = DatastoreServiceFactory.getDatastoreService();
-            Key cle_score = KeyFactory.createKey("scores",userId);
+            Key cle_score = KeyFactory.createKey("Scores",userId);
             Entity val_score = datastore.get(cle_score);
             nb = ((Long) val_score.getProperty("score")).intValue();
         }catch (Exception e){
@@ -127,7 +127,7 @@ public class Requetesdatastore {
         return nb;
     }
 
-    
+
     public static int getcountmovies(){
         int nb = 0;
         try{
@@ -226,14 +226,14 @@ public class Requetesdatastore {
     public static boolean updateExistingScore(String id_user, int newScore )throws EntityNotFoundException{
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Key clef_user = KeyFactory.createKey("Scores",id_user);
+        Entity score_user = datastore.get(clef_user);
 
-            Entity score_user = datastore.get(clef_user);
-            int scoreActuel = (int)score_user.getProperty("score");
+        int scoreActuel = getscore(id_user);
 
-            if(scoreActuel<newScore){
-                score_user.setProperty("score",newScore);
-                datastore.put(score_user);
-                return true;
+        if(scoreActuel<newScore){
+            score_user.setProperty("score",newScore);
+            datastore.put(score_user);
+            return true;
             }
             else
                 return false;

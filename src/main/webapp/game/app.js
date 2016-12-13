@@ -175,7 +175,7 @@
                                 console.log(resp);
                             });
                     }, rootApi);*/
-                    $http.post('/game/AjoutScoreSecure',{score:$scope.score});
+                    $http.post('/game/AjoutScoreSecure?score='+$scope.score);
                     $scope.questionsresult=false;
                     $scope.endgame = true;
                     $scope.mapshow = false;
