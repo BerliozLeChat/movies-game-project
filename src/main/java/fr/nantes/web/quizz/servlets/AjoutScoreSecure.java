@@ -27,8 +27,8 @@ public class AjoutScoreSecure extends HttpServlet {
             if(Requetesdatastore.existScoreUser(user.getUserId()))
                 try {
                     if (Requetesdatastore.updateExistingScore(user.getUserId(), Integer.parseInt(request.getParameter("score"))))
-                        response.setStatus(251); //"Félicitation, vous avez battu votre meilleur score !");
-                    else
+                            response.setStatus(251); //"Félicitation, vous avez battu votre meilleur score !");
+                        else
                         response.setStatus(250 );//"Vous n'avez pas battu votre meilleur score, essayez encore ;)");
                 }catch (EntityNotFoundException e){
                     response.sendError(500, "erreur de fonctionnement interne");

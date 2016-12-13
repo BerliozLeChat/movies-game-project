@@ -158,24 +158,30 @@
             $scope.bonus=1;
             var rootApi = 'https://moviesgameoff.appspot.com/_ah/api/';
 
+            $scope.newscore = false;
+            $scope.goodscore = false;
+            $scope.badscore = false;
+            $scope.waitscore = true;
+
             $scope.goendgame =function() {
                 if($scope.questionsresult){
-
-                    /*gapi.client.load('scoresendpoint', 'v1', function() {
-                        console.log("todos api loaded");
-
-                        gapi.client.scoresendpoint.insertscores({scores:$scope.score}).execute(
-                            function(resp) {
-                                console.log(resp);
-                            });
-
-
-                        gapi.client.scoresendpoint.listscores().execute(
-                            function(resp) {
-                                console.log(resp);
-                            });
-                    }, rootApi);*/
-                    $http.post('/game/AjoutScoreSecure?score='+$scope.score);
+                    $scope.newscore = false;
+                    $scope.goodscore = false;
+                    $scope.badscore = false;
+                    $scope.waitscore = true;
+                    var req = $http.post('/game/AjoutScoreSecure?score='+$scope.score);
+                    req.success(function(data, status) {
+                        if(status==201){
+                            $scope.newscore = true;
+                            $scope.waitscore = false;
+                        }else if(status==251){
+                            $scope.goodscore = true;
+                            $scope.waitscore = false;
+                        }else if(status==250){
+                            $scope.badscore = true;
+                            $scope.waitscore = false;
+                        }
+                    });
                     $scope.questionsresult=false;
                     $scope.endgame = true;
                     $scope.mapshow = false;

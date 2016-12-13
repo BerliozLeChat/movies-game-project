@@ -164,6 +164,10 @@
           </div>
           <div ng-show="endgame">
             <p>Merci d'avoir joué à notre jeu :)</p>
+            <p ng-show="waitscore">Nous sommes entrain d'enregistrer votre score ...</p>
+            <p ng-show="newscore">Merci d'avoir jouer pour la première fois à notre Super Jeu :p !</p>
+            <p ng-show="goodscore">FELICITATION VOUS AVEZ BATTU VOTRE MEILLEUR SCORE !!!</p>
+            <p ng-show="badscore">Dommage, vous n'avez pas battu votre score ! </p>
             <p>Si vous souhaitez faire un score encore mieux, cliquez sur REJOUER !</p>
             <form name="reviewForm_dynamique" ng-submit="suivant()">
               <button class="btn input" type="submit">Rejouer</button>
