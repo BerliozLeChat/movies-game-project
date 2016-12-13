@@ -4,6 +4,7 @@ package fr.nantes.web.quizz.APIBackend;
  * Created by Sébastien on 23/11/2016.
  */
 //import com.google.api.server.spi.auth.common.User;
+
 import com.google.appengine.api.users.User;
 import fr.nantes.web.quizz.APIBackend.PMF;
 
@@ -25,7 +26,13 @@ import javax.persistence.EntityNotFoundException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-@Api(name = "scoresendpoint", namespace = @ApiNamespace(ownerDomain = "mycompany.com", ownerName = "mycompany.com", packagePath="services"))
+@Api(name = "scoresendpoint",
+        namespace = @ApiNamespace(
+                ownerDomain = "mycompany.com",
+                ownerName = "mycompany.com",
+                packagePath="services"
+        )
+)
 public class scoresEndpoint {
     /**
      * This method lists all the entities inserted in datastore.
@@ -76,6 +83,40 @@ public class scoresEndpoint {
     }
 
     /**
+     * This method lists all the entities inserted in datastore.
+     * It uses HTTP GET method and paging support.
+     * @return A CollectionResponse class containing the list of top10 entities
+     */
+    @SuppressWarnings({"unchecked", "unused"})
+    @ApiMethod(name = "top10listscores",  httpMethod = ApiMethod.HttpMethod.GET)
+    public CollectionResponse<Scores> top10listscores() {
+
+        PersistenceManager mgr = null;
+        Cursor cursor = null;
+        List<Scores> execute = null;
+
+        try{
+            mgr = getPersistenceManager();
+
+            Query query = mgr.newQuery(Scores.class);
+            query.setOrdering("score desc");
+            query.setRange(0, 10);
+
+            execute = (List<Scores>) query.execute();
+            cursor = JDOCursorHelper.getCursor(execute);
+            // Tight loop for fetching all entities from datastore and accomodate
+            // for lazy fetch.
+            for (Scores obj : execute);
+        } finally {
+            mgr.close();
+        }
+
+        return CollectionResponse.<Scores>builder()
+                .setItems(execute)
+                .build();
+    }
+
+    /**
      * This method gets the entity having primary key id. It uses HTTP GET method.
      *
      * @param id the primary key of the java bean.
@@ -103,9 +144,9 @@ public class scoresEndpoint {
      */
     @ApiMethod(name = "insertscores",  clientIds = {Constants.WEB_CLIENT_ID}, httpMethod = ApiMethod.HttpMethod.PUT)
     public Scores insertscores(@Named("score")int score, User user) throws OAuthRequestException {
-        if (user ==null)
-            throw new OAuthRequestException("Vous n'êtes pas connecté, veuillez dégager d'ici");
-        else{
+        if (user == null) {
+            throw new OAuthRequestException("Vous n'êtes pas connecté, veuillez dégager d'ici ! ");
+        }else{
             Scores scores = new Scores(user.getUserId(), user.getNickname(), score);
             PersistenceManager mgr = getPersistenceManager();
             try {

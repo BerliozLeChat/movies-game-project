@@ -15,3 +15,11 @@
     background-color: rgba(0,0,0,0.3);
 }
 
+.rightscores{
+    border-right: solid 1px;
+}
+
+.topscores{
+    text-align: center;
+    border-bottom: solid 1px;
+}

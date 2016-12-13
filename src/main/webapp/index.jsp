@@ -40,6 +40,8 @@
     <meta name="keywords" content="HTML,CSS,JavaScript,Angular,GoogleAppEngine">
     <meta name="author" content="Le Luet Camille, Hallereau François, Vallée Sebastien & Pineau Sullivan">
     <link rel="icon" href="../favicon.ico">
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
 <div id="header">
@@ -88,52 +90,16 @@
         </div>
     <% } %>
 </div>
-<div class="middle" id="top">
+<div class="middle" id="top" ng-controller="monController as controller">
     <p> Voici le top 10 du jeu : </p>
     <table style="width:100%">
         <tr>
-            <th>Position</th>
-            <th>Scores</th>
+            <th class="rightscores topscores">Noms</th>
+            <th class="topscores">Scores</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>1500</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>1480</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>1330</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>1300</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>1250</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>1100</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>988</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>977</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>754</td>
+        <tr  ng-repeat="score in topscores.items">
+            <td class="rightscores">{{score.name}}</td>
+            <td>{{score.scores}}</td>
         </tr>
     </table>
 </div>

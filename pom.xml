@@ -158,7 +158,6 @@
 
 
 
-
     </dependencies>
 
     <build>
@@ -173,7 +172,7 @@
 
                 <configuration>
                     <api>JPA</api>
-                    <!--<mappingIncludes>**/entities/*.class</mappingIncludes>-->
+                   <!--<mappingIncludes>**/entities/*.class</mappingIncludes>-->
                    <verbose>true</verbose>
                </configuration>
 
