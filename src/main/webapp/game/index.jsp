@@ -33,7 +33,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="../styleheader.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
-  
+  <link rel="stylesheet" href="pacman.css">
+
   <script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
   <script type="text/javascript" src="app.js"></script>
   <meta name="description" content="game Movies Game">
@@ -76,7 +77,7 @@
       </div>
       <div ng-show="!ready">
         <h1>Génération des questions en cours ... ...</h1>
-        <img id="loader" src="ajax-loader.gif" alt="loader" height="40" width="40">
+        <div class='uil-pacman-css' style='-webkit-transform:scale(0.25)'><div><div></div></div><div><div></div></div><div><div></div></div></div>
         <br>
         <sub>(Si au bout d'une dizaine de secondes la génération des questions n'est pas terminée, veuillez actualiser la page)</sub>
       </div>
