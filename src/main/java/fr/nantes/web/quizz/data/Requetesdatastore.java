@@ -1,7 +1,10 @@
 package fr.nantes.web.quizz.data;
 
 import com.google.appengine.api.datastore.*;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
 
+import javax.persistence.*;
 import javax.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -172,4 +175,56 @@ public class Requetesdatastore {
      }
         return (3);
     }
+
+    public static boolean existScoreUser(String id_user){
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key clef_user = KeyFactory.createKey("Scores",id_user);
+        boolean res = false;
+        try{
+            datastore.get(clef_user);
+            res = true;
+        }
+        catch (EntityNotFoundException e) {
+        //do nothing
+        }
+        finally {
+            return res;
+        }
+
+
+    }
+
+    public static void insertNewScore(String id_user, String name, int score){
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Entity newScore = new Entity("Scores",id_user);
+        newScore.setProperty("name", name);
+        newScore.setProperty("score", score);
+
+        datastore.put(newScore);
+
+
+    }
+
+    /**
+     * Utilisateur doit exister dans la base sinon retourne une exeption EntityNotFoundException !!!
+     */
+
+    public static boolean updateExistingScore(String id_user, int newScore )throws EntityNotFoundException{
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key clef_user = KeyFactory.createKey("Scores",id_user);
+
+            Entity score_user = datastore.get(clef_user);
+            int scoreActuel = (int)score_user.getProperty("score");
+
+            if(scoreActuel<newScore){
+                score_user.setProperty("score",newScore);
+                datastore.put(score_user);
+                return true;
+            }
+            else
+                return false;
+
+    }
+
+
 }
