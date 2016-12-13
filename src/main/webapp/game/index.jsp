@@ -76,7 +76,7 @@
       </div>
       <div ng-show="!ready">
         <h1>Génération des questions en cours ... ...</h1>
-        <img id="loader" src="ajax-loader.gif" alt="loader" height="35" width="35">
+        <img id="loader" src="ajax-loader.gif" alt="loader" height="40" width="40">
         <br>
         <sub>(Si au bout d'une dizaine de secondes la génération des questions n'est pas terminée, veuillez actualiser la page)</sub>
       </div>
