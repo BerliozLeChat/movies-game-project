@@ -6,6 +6,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 import fr.nantes.web.quizz.data.Requetesdatastore;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,10 +14,10 @@ import java.io.IOException;
 /**
  * Created by Sébastien on 13/12/2016.
  */
-public class AjoutScoreSecure {
+public class AjoutScoreSecure extends HttpServlet {
 
     @Override
-    public void doP(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
