@@ -40,10 +40,6 @@
     app.controller('madonnee_dynamique', ['$scope','$window', '$http', '$interval',
         function($scope, $window,$http,$interval) {
 
-            $scope.sname = 'sullivan';
-            $scope.sid = 111;
-
-
             $scope.ready =false;
             $scope.movie = [];
 
@@ -122,7 +118,13 @@
                     $scope.quitrue = $scope.movie.qui_vrai;
                     if($scope.quitrue==$result){
                         $scope.resultquitrue = true;
-                        $scope.score = $scope.score + 10;
+                        if( $scope.timerchoix== 50){
+                            $scope.score = $scope.score + 20;
+                        }else if( $scope.timerchoix == 100){
+                            $scope.score = $scope.score + 15;
+                        }else{
+                            $scope.score = $scope.score + 10;
+                        }
                     }
                     else
                         $scope.resultquitrue = false;
@@ -133,7 +135,13 @@
                     $scope.quandtrue = $scope.movie.quand_vrai;
                     if($scope.quandtrue==$result){
                         $scope.resultquandtrue = true;
-                        $scope.score = $scope.score + 10;
+                        if( $scope.timerchoix== 50){
+                            $scope.score = $scope.score + 20;
+                        }else if( $scope.timerchoix == 100){
+                            $scope.score = $scope.score + 15;
+                        }else{
+                            $scope.score = $scope.score + 10;
+                        }
                     }
                     else
                         $scope.resultquandtrue = false;
@@ -156,8 +164,6 @@
             $scope.longitudetrue =0;
             $scope.endquestionnaire=false;
             $scope.bonus=1;
-            var rootApi = 'https://moviesgameoff.appspot.com/_ah/api/';
-
             $scope.newscore = false;
             $scope.goodscore = false;
             $scope.badscore = false;
@@ -279,7 +285,13 @@
 
                     if( $scope.pays.match(".*"+$scope.paysselect+".*") && ($scope.paysselect!="") ){
                         $scope.resultoutrue = true;
-                        $scope.score = $scope.score + 10;
+                        if( $scope.timerchoix== 50){
+                            $scope.score = $scope.score + 20;
+                        }else if( $scope.timerchoix == 100){
+                            $scope.score = $scope.score + 15;
+                        }else{
+                            $scope.score = $scope.score + 10;
+                        }
                     }
                     else
                         $scope.resultoutrue = false;
