@@ -137,6 +137,16 @@
     <url-pattern>/game/AjoutScoreSecure</url-pattern>
   </servlet-mapping>
 
+  <!--mapping et configuration des servlets UTILISATEURS-->
+  <servlet>
+    <servlet-name>GetScore</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.servlets.GetScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetScore</servlet-name>
+    <url-pattern>/game/GetScore</url-pattern>
+  </servlet-mapping>
+
   <!--Gestion des erreurs et redirection -->
 <error-page>
     <error-code>500</error-code>

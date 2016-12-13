@@ -114,6 +114,20 @@ public class Requetesdatastore {
         return nb;
     }
 
+    public static int getscore(String userId) {
+        int nb = 0;
+        try{
+            DatastoreService datastore;
+            datastore = DatastoreServiceFactory.getDatastoreService();
+            Key cle_score = KeyFactory.createKey("scores",userId);
+            Entity val_score = datastore.get(cle_score);
+            nb = ((Long) val_score.getProperty("score")).intValue();
+        }catch (Exception e){
+        }
+        return nb;
+    }
+
+    
     public static int getcountmovies(){
         int nb = 0;
         try{

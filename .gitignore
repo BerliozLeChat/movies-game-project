@@ -4,3 +4,5 @@ target/
 RemoteSystemsTempFiles/*
 .idea/*
 datanucleus.log
+lib/javaee.jar
+*.xml
