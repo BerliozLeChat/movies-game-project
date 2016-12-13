@@ -100,7 +100,7 @@ public class scoresEndpoint {
 
             Query query = mgr.newQuery(Scores.class);
             query.setOrdering("score desc");
-            query.setRange(0, 10);
+            query.setRange(0, 11);
 
             execute = (List<Scores>) query.execute();
             cursor = JDOCursorHelper.getCursor(execute);
