@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/crons/movies/cronMiseAJour</url>
+        <description>mise a jour de la base de données des films chaque jour petit a petit</description>
+        <schedule>every day 03:00</schedule>
+        <timezone>FR</timezone>
+        <retry-parameters>
+            <job-retry-limit>0</job-retry-limit>
+        </retry-parameters>
+    </cron>
+</cronentries>

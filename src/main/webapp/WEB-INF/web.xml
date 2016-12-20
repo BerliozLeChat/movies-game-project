@@ -27,6 +27,16 @@
     </auth-constraint>
   </security-constraint>
 
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>security_crons</web-resource-name>
+      <url-pattern>/crons/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
 
 
 
@@ -51,6 +61,15 @@
     <url-pattern>/_ah/spi/*</url-pattern>
   </servlet-mapping>
 
+  <!--mapping et configuration des servlets crons-->
+  <servlet>
+    <servlet-name>cronMiseAJour</servlet-name>
+    <servlet-class>fr.nantes.web.quizz.crons.cronsMovies.CronMiseAJour</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cronMiseAJour</servlet-name>
+    <url-pattern>/crons/movies/cronMiseAJour</url-pattern>
+  </servlet-mapping>
 
   <!--mapping et configuration des servlets UTILISATEURS-->
   <servlet>
