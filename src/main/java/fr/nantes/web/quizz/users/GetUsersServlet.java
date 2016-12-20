@@ -24,7 +24,7 @@ public class GetUsersServlet extends HttpServlet {
         if (userService.getCurrentUser() != null){
             nomUser = userService.getCurrentUser().getNickname();
             idUser = userService.getCurrentUser().getUserId();
-            admin=(Requetesdatastore.isadmin(idUser));
+            admin=(userService.isUserAdmin());
         }
 
 
