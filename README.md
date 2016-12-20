@@ -1,6 +1,6 @@
 # Quizz Cinéma
 Projet de Web&amp;Cloud - Quizz Cinéma avec questions générées via DBpedia
-![Logo](https://raw.githubusercontent.com/BerliozLeChat/movies-game-project/master/src/main/webapp/Film-icon.png =128x128)
+<img src="https://raw.githubusercontent.com/BerliozLeChat/movies-game-project/master/src/main/webapp/Film-icon.png" alt="Logo" style="width: 128px;"/>
 [Movies Game](https://moviesgameoff.appspot.com/ "le site Movies Game")
 [![Build Status](https://travis-ci.org/BerliozLeChat/movies-game-project.svg?branch=master)](https://travis-ci.org/BerliozLeChat/movies-game-project)
 
