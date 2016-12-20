@@ -71,11 +71,6 @@
            </a>
        </div>
     <% }else{ %>
-        <div id="input_connection">
-                <a id="" href="<% out.println(url); %>">
-                    <button class="btn input" type="submit">Se déconnecter</button>
-                </a>
-        </div>
         <div id="input_jeu">
            <a href="/game/">
                <button class="btn input" type="submit">Jouer</button>
