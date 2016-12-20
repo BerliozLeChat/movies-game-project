@@ -9,7 +9,7 @@ Projet de Web&amp;Cloud - Quizz Cinéma avec questions générées via DBpedia
 
 Les outils suivants sont nécessaires pour installer movies game:
 * [git](https://git-scm.com/) en version 1.9 ou supérieure
-* [Maven](https://maven.apache.org/) en version 3.1 ou supérieure
+* [Maven](https://maven.apache.org/) en version 3.3.9 ou supérieure
 
 Il est conseillé d'avoir une bonne connaissance de la plateforme [Google App Engine](https://cloud.google.com/appengine/docs).
 
