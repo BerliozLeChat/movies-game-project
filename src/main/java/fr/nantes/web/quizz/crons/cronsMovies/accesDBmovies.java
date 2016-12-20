@@ -1,4 +1,4 @@
-import fr.nantes.web.quizz.crons.cronsMovies;
+package fr.nantes.web.quizz.crons.cronsMovies;
 
 import fr.nantes.web.quizz.data.*;
 
