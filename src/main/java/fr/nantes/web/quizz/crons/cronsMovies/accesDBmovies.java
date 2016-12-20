@@ -6,6 +6,8 @@ import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 
+import java.util.ArrayList;
+
 public class accesDBmovies {
     public static boolean goCron() {
         boolean result = true;
@@ -14,10 +16,12 @@ public class accesDBmovies {
         datastore = DatastoreServiceFactory.getDatastoreService();
         Key offsetCronsMoviescle = KeyFactory.createKey("offsetCronsMovies",1);
         try{
+            int offsetCronsMovies;
+
             Entity offsetCronsMoviesentite = datastore.get(offsetCronsMoviescle);
             offsetCronsMovies = ((Long) offsetCronsMoviesentite.getProperty("valeur")).intValue();
             int moviesUpdate = 0;
-            ArrayList<Film> liste = Sparql.getMovies(int limit, int offset);
+            ArrayList<Film> liste = Sparql.getMovies(limit, offset);
             Entity e;
             for(int i=0; i<liste.size();++i){
                 e = new Entity("movies", i + offsetCronsMovies +1);
