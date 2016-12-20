@@ -52,3 +52,7 @@
 .commandes input[type="submit"] {
     margin-bottom: 20px;
 }
+
+.btn {
+    width:initial;
+}
