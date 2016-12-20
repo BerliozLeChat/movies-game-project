@@ -44,6 +44,16 @@ public class accesDBmovies {
                 e = new Entity("offsetCronsMovies",1);
                 e.setProperty("valeur", 0);
                 datastore.put(e);
+            }else{
+                if(countmovies<(offsetCronsMovies+moviesUpdate)){
+                    e = new Entity("offsetCronsMovies", 1);
+                    e.setProperty("valeur", 0);
+                    datastore.put(e);
+                }else {
+                    e = new Entity("offsetCronsMovies", 1);
+                    e.setProperty("valeur", offsetCronsMovies + moviesUpdate);
+                    datastore.put(e);
+                }
             }
         } catch (Exception e){
             Entity offsetCronsMovies = new Entity("offsetCronsMovies",1);
