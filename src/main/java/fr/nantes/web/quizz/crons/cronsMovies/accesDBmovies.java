@@ -21,7 +21,7 @@ public class accesDBmovies {
             Entity offsetCronsMoviesentite = datastore.get(offsetCronsMoviescle);
             offsetCronsMovies = ((Long) offsetCronsMoviesentite.getProperty("valeur")).intValue();
             int moviesUpdate = 0;
-            ArrayList<Film> liste = Sparql.getMovies(limit, offset);
+            ArrayList<Film> liste = Sparql.getMovies(10, offsetCronsMovies);
             Entity e;
             for(int i=0; i<liste.size();++i){
                 e = new Entity("movies", i + offsetCronsMovies +1);
