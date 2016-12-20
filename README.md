@@ -1,7 +1,8 @@
 # Quizz Cinéma
+
+<a href="https://moviesgameoff.appspot.com/"><img src="https://raw.githubusercontent.com/BerliozLeChat/movies-game-project/master/src/main/webapp/Film-icon.png" alt="Logo" width="128" height="128"/></a>
 Projet de Web&amp;Cloud - Quizz Cinéma avec questions générées via DBpedia
-<img src="https://raw.githubusercontent.com/BerliozLeChat/movies-game-project/master/src/main/webapp/Film-icon.png" alt="Logo" width="128" height="128"/>
-[Movies Game](https://moviesgameoff.appspot.com/ "le site Movies Game")
+
 [![Build Status](https://travis-ci.org/BerliozLeChat/movies-game-project.svg?branch=master)](https://travis-ci.org/BerliozLeChat/movies-game-project)
 
 ##Prérequis d'installation
