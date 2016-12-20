@@ -5,6 +5,9 @@ Projet de Web&amp;Cloud - Quizz Cinéma avec questions générées via DBpedia
 
 [![Build Status](https://travis-ci.org/BerliozLeChat/movies-game-project.svg?branch=master)](https://travis-ci.org/BerliozLeChat/movies-game-project)
 
+##Développeurs
+Le Luët Camille, Hallereau François, Vallée Sebastien et Pineau Sullivan
+
 ##Prérequis d'installation
 
 Les outils suivants sont nécessaires pour installer movies game:
