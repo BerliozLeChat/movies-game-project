@@ -116,12 +116,12 @@ public class scoresEndpoint {
                 .build();
     }
 
-    /**
+/*    *//**
      * This method gets the entity having primary key id. It uses HTTP GET method.
      *
      * @param id the primary key of the java bean.
      * @return The entity with primary key id.
-     */
+     *//*
     @ApiMethod(name = "getscores")
     public Scores getscores(@Named("id") String id) {
         PersistenceManager mgr = getPersistenceManager();
@@ -134,14 +134,14 @@ public class scoresEndpoint {
         return scores;
     }
 
-    /**
+    *//**
      * This inserts a new entity into App Engine datastore. If the entity already
      * exists in the datastore, an exception is thrown.
      * It uses HTTP POST method.
      *
      * @param score the entity to be inserted.
      * @return The inserted entity.
-     */
+     *//*
     @ApiMethod(name = "insertscores",  clientIds = {Constants.WEB_CLIENT_ID}, httpMethod = ApiMethod.HttpMethod.PUT)
     public Scores insertscores(@Named("score")int score, User user) throws OAuthRequestException {
         if (user == null) {
@@ -169,14 +169,14 @@ public class scoresEndpoint {
         }
     }
 
-    /**
+    *//**
      * This method is used for updating an existing entity. If the entity does not
      * exist in the datastore, an exception is thrown.
      * It uses HTTP PUT method.
      *
      * @param scores the entity to be updated.
      * @return The updated entity.
-     */
+     *//*
     @ApiMethod(name = "updatescores")
     public Scores updatescores(Scores scores) {
         PersistenceManager mgr = getPersistenceManager();
@@ -188,12 +188,12 @@ public class scoresEndpoint {
         return scores;
     }
 
-    /**
+    *//**
      * This method removes the entity with primary key id.
      * It uses HTTP DELETE method.
      *
      * @param id the primary key of the entity to be deleted.
-     */
+     *//*
     @ApiMethod(name = "removescores")
     public void removescores(@Named("id") String id) {
         PersistenceManager mgr = getPersistenceManager();
@@ -203,7 +203,7 @@ public class scoresEndpoint {
         } finally {
             mgr.close();
         }
-    }
+    }*/
 
     private boolean containsscores(Scores scores) {
         PersistenceManager mgr = getPersistenceManager();

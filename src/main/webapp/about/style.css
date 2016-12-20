@@ -66,3 +66,11 @@ img#photo {
 .photoContainer img {
     border-radius: 15px;
 }
+
+#about{
+    margin-bottom: 50px;
+}
+
+#description_app p{
+    text-align: justify;
+}
