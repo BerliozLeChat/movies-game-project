@@ -42,11 +42,13 @@
 
             $scope.ready =false;
             $scope.movie = [];
+            $scope.nombreMovie = 0;
 
             var promise = $http.get('/game/quizzquestions');
 
             promise.success(function(data) {
                 $scope.data = data;
+                $scope.nombreMovie = Object.keys(data[0]).length;
                 $scope.ready = true;
                 $scope.mapshow = false;
             });
@@ -196,7 +198,7 @@
             }
 
             $scope.suivant =function() {
-                if($scope.i<9 && !$scope.endquestionnaire){
+                if($scope.i<($scope.nombreMovie-1) && !$scope.endquestionnaire){
                     $scope.resultqui = "";
                     $scope.resultquand = "";
                     $scope.resultlatitude = null;
@@ -297,7 +299,7 @@
                         $scope.resultoutrue = false;
                     $scope.repondu = true;
                     $scope.questionsresult=true;
-                    if($scope.i<9){
+                    if($scope.i<($scope.nombreMovie-1)){
                         $scope.endquestionnaire =false;
                     }else{
                         $scope.endquestionnaire =true;

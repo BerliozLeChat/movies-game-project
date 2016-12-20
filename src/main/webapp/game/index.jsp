@@ -90,7 +90,7 @@
         <div ng-show="questionnaires">
           <div id="barre_progression">
             <p class="score">Score : {{score}}</p>
-            <p ng-show="!endgame">Question numéro {{i+1}}/10</p>
+            <p ng-show="!endgame">Question numéro {{i+1}}/{{nombreMovie}}</p>
             <p ng-show="!questionsresult && !endgame && (timerchoix!=1000)">Timer : <font color='red'>{{(timer)/10}}s</font></p>
             <div ng-show="!questionsresult && !endgame && (timerchoix!=1000)" id="barre" style="margin-right:{{((105-((timerchoix-timer)/timerchoix)*100)/105)*100}}% !important;"></div>
           </div>
